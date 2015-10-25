@@ -55,17 +55,20 @@ namespace SillaMusical
             label.Position = bounds.LowerLeft;
 
             //Ubicar las 6 sillas al inicio
-            //TODO hallar el centro de la pantalla            
-            double cx = 200;
-            double cy = 200;
-            double radio = 100;
+            //TODO hallar el centro de la pantalla   
+            CCSize tamaño = Scene.Window.WindowSizeInPixels;
+            CCPoint centro = tamaño.Center;
+            double cx = centro.X;
+            double cy = centro.Y;
+            double radio = 200;
 
-            for(int i = 0; i < sillas.Count; i++)
+            for (int i = 0; i < sillas.Count; i++)
             {
-                double xpos= cx + radio * Math.Sin(2* Math.PI / 6 * i);
+                double xpos = cx + radio * Math.Sin(2 * Math.PI / 6 * i);
                 double ypos = cy + radio * Math.Cos(2 * Math.PI / 6 * i);
-                CCPoint position = new CCPoint((float)xpos,(float)ypos);
+                CCPoint position = new CCPoint((float)xpos, (float)ypos);
                 sillas[i].Position = position;
+                sillas[i].Rotation = (float)(180 + 360 / 6 * i);
             }
 
 
