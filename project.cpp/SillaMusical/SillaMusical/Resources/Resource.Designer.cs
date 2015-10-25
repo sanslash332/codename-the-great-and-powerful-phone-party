@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("project.cpp.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("SillaMusical.Resource", IsApplication=true)]
 
-namespace project.cpp.Droid
+namespace SillaMusical
 {
 	
 	
