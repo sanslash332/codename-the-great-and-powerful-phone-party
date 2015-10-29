@@ -11,6 +11,7 @@ namespace project.cpp.Shared
         public override void ApplicationDidFinishLaunching(CCApplication application, CCWindow mainWindow)
         {
             application.ContentRootDirectory = "Content";
+            application.ContentSearchPaths.Add("hd");
             var windowSize = mainWindow.WindowSizeInPixels;
 
             var desiredWidth = 1024.0f;
@@ -38,6 +39,8 @@ namespace project.cpp.Shared
             var introLayer = new IntroLayer();
 
             scene.AddChild(introLayer);
+            CCSize tamaño = scene.Window.WindowSizeInPixels;
+            CCPoint centro = tamaño.Center;
 
             mainWindow.RunWithScene(scene);
         }
