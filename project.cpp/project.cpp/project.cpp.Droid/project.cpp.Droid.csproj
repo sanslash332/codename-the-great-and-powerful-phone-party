@@ -90,7 +90,6 @@
   <ItemGroup>
     <Folder Include="Assets\Content\hd\animations\" />
     <Folder Include="Assets\Content\hd\fonts\" />
-    <Folder Include="Assets\Content\hd\images\" />
     <Folder Include="Assets\Content\ld\animations\" />
     <Folder Include="Assets\Content\ld\fonts\" />
     <Folder Include="Assets\Content\ld\images\" />
@@ -108,6 +107,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\4773348909_7b5bd00743_b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\silla_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\silla_cyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\silla_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\silla_magenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\silla_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\hd\images\silla_red.png" />
   </ItemGroup>
   <Import Project="..\project.cpp.Shared\EmptyProject.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
