@@ -43,7 +43,6 @@
   <ItemGroup>
     <Folder Include="Content\hd\animations\" />
     <Folder Include="Content\hd\fonts\" />
-    <Folder Include="Content\hd\images\" />
     <Folder Include="Content\ld\animations\" />
     <Folder Include="Content\ld\fonts\" />
     <Folder Include="Content\ld\images\" />
@@ -114,6 +113,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\hd\images\4773348909_7b5bd00743_b.jpg" />
+    <Content Include="Content\hd\images\silla_blue.png" />
+    <Content Include="Content\hd\images\silla_cyan.png" />
+    <Content Include="Content\hd\images\silla_green.png" />
+    <Content Include="Content\hd\images\silla_magenta.png" />
+    <Content Include="Content\hd\images\silla_orange.png" />
+    <Content Include="Content\hd\images\silla_red.png" />
     <Content Include="Game.ico" />
   </ItemGroup>
   <ItemGroup>
