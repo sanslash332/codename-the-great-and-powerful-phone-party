@@ -12,7 +12,7 @@ using Uri = Android.Net.Uri;
 using Microsoft.Xna.Framework;
 
 using CocosSharp;
-using project.cpp.Shared;
+using project.cpp.Core;
 
 namespace project.cpp.Droid
 {

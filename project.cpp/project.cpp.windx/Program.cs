@@ -3,7 +3,8 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
 using CocosSharp;
-using project.cpp.Shared;
+//using project.cpp.Shared;
+using project.cpp.Core;
 
 
 
