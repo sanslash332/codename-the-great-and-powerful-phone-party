@@ -138,7 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\project.cpp.Core\project.cpp.Core\project.cpp.Core.csproj">
-      <Project>{595e7a0d-77e4-4ffb-bc67-7d15014d6259}</Project>
+      <Project>{67763402-f109-4305-8381-972b4bdb172d}</Project>
       <Name>project.cpp.Core</Name>
     </ProjectReference>
   </ItemGroup>

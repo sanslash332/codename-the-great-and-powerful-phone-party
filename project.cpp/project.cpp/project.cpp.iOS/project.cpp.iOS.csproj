@@ -94,8 +94,6 @@
     <Folder Include="Content\sounds\" />
   </ItemGroup>
   <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="box2d, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\Xamarin.iOS10\box2d.dll</HintPath>
       <Private>True</Private>
@@ -121,6 +119,11 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
-  <Import Project="..\project.cpp.Shared\EmptyProject.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\project.cpp.Core\project.cpp.Core\project.cpp.Core.csproj">
+      <Project>{67763402-f109-4305-8381-972b4bdb172d}</Project>
+      <Name>project.cpp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
