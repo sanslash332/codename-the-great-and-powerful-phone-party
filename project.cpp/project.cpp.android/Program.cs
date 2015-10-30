@@ -12,12 +12,13 @@ using Uri = Android.Net.Uri;
 using Microsoft.Xna.Framework;
 
 using CocosSharp;
+using project.cpp.Core;
 
 
-namespace project.cpp.Droid
+namespace project.cpp.android
 {
 
-    [Activity(Label = "project.cpp.Droid"
+    [Activity(Label = "project.cpp.android"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
@@ -27,19 +28,19 @@ namespace project.cpp.Droid
         , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden)]
     public class Program : AndroidGameActivity
     {
-        
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             CCApplication application = new CCApplication();
-			application.ApplicationDelegate = new AppDelegate();
+            application.ApplicationDelegate = new AppDelegate();
 
-			this.SetContentView(application.AndroidContentView);
+            this.SetContentView(application.AndroidContentView);
 
-			application.StartGame();
+            application.StartGame();
 
-        }        
+        }
     }
 
 

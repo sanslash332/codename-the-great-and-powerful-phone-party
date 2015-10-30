@@ -8,8 +8,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>project.cpp.Core</RootNamespace>
     <AssemblyName>project.cpp.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile92</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -37,15 +37,15 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="box2d, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\portable-net45+win+wpa81+wp81\box2d.dll</HintPath>
+      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.2.0\lib\portable-net45+win+wpa81+wp81\box2d.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CocosSharp, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\portable-net45+win+wpa81+wp81\CocosSharp.dll</HintPath>
+    <Reference Include="CocosSharp, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.2.0\lib\portable-net45+win+wpa81+wp81\CocosSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MonoGame.Framework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\portable-net45+win+wpa81+wp81\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.2.0\lib\portable-net45+win+wpa81+wp81\MonoGame.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

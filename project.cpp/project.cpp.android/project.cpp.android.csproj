@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{37FDBC38-87C3-4E18-B6B5-DB5C5251C952}</ProjectGuid>
+    <ProjectGuid>{E3BA8186-FE45-494A-BD79-8673A361857A}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>project.cpp.Droid</RootNamespace>
-    <AssemblyName>project.cpp.Droid</AssemblyName>
+    <RootNamespace>project.cpp.android</RootNamespace>
+    <AssemblyName>project.cpp.android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -25,7 +25,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Android\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,7 +35,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Android\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,24 +44,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="box2d, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\box2d.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\box2d.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CocosSharp, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\CocosSharp.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\CocosSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Lidgren.Network, Version=2012.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\Lidgren.Network.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\Lidgren.Network.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="MonoGame.Framework, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\MonoGame.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MonoGame.Framework.Net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\MonoGame.Framework.Net.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.PCL.Shared.1.6.1.0\lib\MonoAndroid10\MonoGame.Framework.Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
@@ -90,6 +90,7 @@
   <ItemGroup>
     <Folder Include="Assets\Content\hd\animations\" />
     <Folder Include="Assets\Content\hd\fonts\" />
+    <Folder Include="Assets\Content\hd\images\" />
     <Folder Include="Assets\Content\ld\animations\" />
     <Folder Include="Assets\Content\ld\fonts\" />
     <Folder Include="Assets\Content\ld\images\" />
@@ -106,30 +107,13 @@
     <AndroidResource Include="Resources\Drawable\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\AndroidManifest.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\4773348909_7b5bd00743_b.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\silla_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\silla_cyan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\silla_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\silla_magenta.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\silla_orange.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Content\hd\images\silla_red.png" />
+    <ProjectReference Include="..\project.cpp.Core\project.cpp.Core\project.cpp.Core.csproj">
+      <Project>{595e7a0d-77e4-4ffb-bc67-7d15014d6259}</Project>
+      <Name>project.cpp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
