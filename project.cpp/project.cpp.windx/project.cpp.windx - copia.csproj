@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -120,30 +120,38 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-
-
-
-
-
- <ItemGroup>
-    <Content Include="..\Content\**\*.*">
-<Link>Content\%(RecursiveDir)%(FileName)%(Extension)</Link>
-      <visible />
- <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-
-    </Content>
-   <Content Include="Game.ico" />
-  </ItemGroup>
-
-
-
   <ItemGroup>
+    <Content Include="..\Content\hd\images\4773348909_7b5bd00743_b.jpg">
+      <Link>Content\hd\images\4773348909_7b5bd00743_b.jpg</Link>
+    </Content>
+    <Content Include="..\Content\hd\images\silla_blue.png">
+      <Link>Content\hd\images\silla_blue.png</Link>
+    </Content>
+    <Content Include="..\Content\hd\images\silla_cyan.png">
+      <Link>Content\hd\images\silla_cyan.png</Link>
+    </Content>
+    <Content Include="..\Content\hd\images\silla_green.png">
+      <Link>Content\hd\images\silla_green.png</Link>
+    </Content>
+    <Content Include="..\Content\hd\images\silla_magenta.png">
+      <Link>Content\hd\images\silla_magenta.png</Link>
+    </Content>
+    <Content Include="..\Content\hd\images\silla_orange.png">
+      <Link>Content\hd\images\silla_orange.png</Link>
+    </Content>
+    <Content Include="..\Content\hd\images\silla_red.png">
+      <Link>Content\hd\images\silla_red.png</Link>
+    </Content>
+    <Content Include="Game.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Content\fonts\MarkerFelt-22.xnb">
+      <Link>Content\fonts\MarkerFelt-22.xnb</Link>
+    </None>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-
-
-<ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\project.cpp.Core\project.cpp.Core\project.cpp.Core.csproj">
       <Project>{67763402-f109-4305-8381-972b4bdb172d}</Project>
       <Name>project.cpp.Core</Name>
