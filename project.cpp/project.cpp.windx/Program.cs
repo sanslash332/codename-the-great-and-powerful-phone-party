@@ -19,6 +19,7 @@ namespace project.cpp.windx
 		[STAThread]
         static void Main(string[] args)
         {
+            Console.Title("Codename, cpp ");
             CCApplication application = new CCApplication(false, new CCSize(1024f, 768f));
             application.ApplicationDelegate = new AppDelegate();
 

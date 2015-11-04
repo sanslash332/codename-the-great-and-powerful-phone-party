@@ -1,46 +1,29 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using CocosSharp;
 using Microsoft.Xna.Framework;
+using CocosDenshion;
 
 namespace project.cpp.Core
 {
-    public class IntroLayer : CCLayerColor
+    public class  IntroLayer : CCLayerColor
     {
 
         // Define a label variable
         CCLabel label;
-        CCSprite redChair, blueChair, greenChair, magentaChair, cyanChair, orangeChair;
-        List<CCSprite> sillas = new List<CCSprite>();
+        int sid;
+        
 
-        public IntroLayer() : base(CCColor4B.White)
+        public IntroLayer() : base(CCColor4B.Red)
         {
-            redChair = new CCSprite("images/silla_red.png");
-            blueChair = new CCSprite("images/silla_blue.png");
-            greenChair = new CCSprite("images/silla_green.png");
-            magentaChair = new CCSprite("images/silla_magenta.png");
-            cyanChair = new CCSprite("images/silla_cyan.png");
-            orangeChair = new CCSprite("images/silla_orange.png");
-
-            sillas.Add(redChair);
-            sillas.Add(blueChair);
-            sillas.Add(greenChair);
-            sillas.Add(magentaChair);
-            sillas.Add(cyanChair);
-            sillas.Add(orangeChair);
-
-            AddChild(redChair);
-            AddChild(blueChair);
-            AddChild(greenChair);
-            AddChild(magentaChair);
-            AddChild(cyanChair);
-            AddChild(orangeChair);
 
             // create and initialize a Label
-            label = new CCLabel("Silla Musical", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            label = new CCLabel("Toca la pantalla, presiona start, o presiona enter para iniciar.", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
 
             // add the label as a child to this Layer
             AddChild(label);
+                CCSimpleAudioEngine.SharedEngine.PreloadEffect("sounds/start");
+            CCSimpleAudioEngine.SharedEngine.PreloadEffect("sounds/coin");
 
         }
 
@@ -52,39 +35,59 @@ namespace project.cpp.Core
             var bounds = VisibleBoundsWorldspace;
 
             // position the label on the center of the screen
-            label.Position = bounds.LowerLeft;
+            label.Position = bounds.Center;
 
             //Ubicar las 6 sillas al inicio
             //TODO hallar el centro de la pantalla   
-            CCSize tamaño = Scene.Window.WindowSizeInPixels;
-            CCPoint centro = tamaño.Center;
-            double cx = centro.X;
-            double cy = centro.Y;
-            double radio = 200;
-
-            for (int i = 0; i < sillas.Count; i++)
-            {
-                double xpos = cx + radio * Math.Sin(2 * Math.PI / 6 * i);
-                double ypos = cy + radio * Math.Cos(2 * Math.PI / 6 * i);
-                CCPoint position = new CCPoint((float)xpos, (float)ypos);
-                sillas[i].Position = position;
-                sillas[i].Rotation = (float)(180 + 360 / 6 * i);
-            }
-
+            CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin",false);
 
             // Register for touch events
             var touchListener = new CCEventListenerTouchAllAtOnce();
+            var keyListener = new CCEventListenerKeyboard();
             touchListener.OnTouchesEnded = OnTouchesEnded;
+            keyListener.OnKeyPressed = OnKeyPress;
             AddEventListener(touchListener, this);
+            AddEventListener(keyListener, this);
+        }
+
+        
+        void OnKeyPress(CCEventKeyboard keyEvent)
+        {
+            if(keyEvent.Keys== CCKeys.Enter)
+            {
+                CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/start");
+                passToGame();
+            }
+            else
+            {
+                CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin");
+            }
+                
+
         }
 
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
         {
             if (touches.Count > 0)
             {
+                CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/start");
+                passToGame();
                 // Perform touch handling here
             }
         }
+
+
+        public void passToGame()
+        {
+            var newScene = new CCScene(Window);
+            var silla = new SillaMusicalLayer();
+            newScene.AddChild(silla);
+            Window.DefaultDirector.ReplaceScene(newScene);
+            
+
+
+
+        }
     }
-}
+}   
 

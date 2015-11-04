@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />
     <Compile Include="IntroLayer.cs" />
+    <Compile Include="SillaMusicalLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
