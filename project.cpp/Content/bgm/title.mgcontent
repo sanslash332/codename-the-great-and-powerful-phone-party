@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/bgm/title.wav</SourceFile>
+  <SourceTime>2015-11-19T00:05:48.3441239-03:00</SourceTime>
+  <DestFile>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/bgm/title.xnb</DestFile>
+  <DestTime>2015-11-19T00:08:09.9436558-03:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2015-09-04T03:26:22-03:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2015-09-04T03:26:22-03:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

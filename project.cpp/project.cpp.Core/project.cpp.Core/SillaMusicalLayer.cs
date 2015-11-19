@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CocosSharp;
 using Microsoft.Xna.Framework;
+using CocosDenshion;
 
 namespace project.cpp.Core
 {
@@ -12,6 +13,8 @@ namespace project.cpp.Core
         CCLabel label;
         CCSprite redChair, blueChair, greenChair, magentaChair, cyanChair, orangeChair;
         List<CCSprite> sillas = new List<CCSprite>();
+        int musicId;
+
 
         public SillaMusicalLayer() : base(CCColor4B.White)
         {
@@ -36,6 +39,10 @@ namespace project.cpp.Core
             AddChild(cyanChair);
             AddChild(orangeChair);
 
+            CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/sillas");
+            musicId = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/sillas", true);
+            CCSimpleAudioEngine.SharedEngine.PauseEffect(musicId);
+
             // create and initialize a Label
             label = new CCLabel("Silla Musical", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
 
@@ -47,6 +54,9 @@ namespace project.cpp.Core
         protected override void AddedToScene()
         {
             base.AddedToScene();
+
+            CCSimpleAudioEngine.SharedEngine.ResumeAllEffects();
+            
 
             // Use the bounds to layout the positioning of our drawable assets
             var bounds = VisibleBoundsWorldspace;

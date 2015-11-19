@@ -19,9 +19,10 @@ namespace project.cpp.windx
 		[STAThread]
         static void Main(string[] args)
         {
-            Console.Title("Codename, cpp ");
+            //Console.Title = "cpp game ";
             CCApplication application = new CCApplication(false, new CCSize(1024f, 768f));
             application.ApplicationDelegate = new AppDelegate();
+            
 
             application.StartGame();
         }

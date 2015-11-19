@@ -13,12 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin sounds/start.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:sounds/start.wav
-
 #begin fonts/MarkerFelt-22.xnb
 /importer:
 /processor:
@@ -108,9 +102,224 @@
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_red.png
 
+#begin fonts\MarkerFelt-22.xnb
+/importer:
+/processor:
+/build:fonts\MarkerFelt-22.xnb
+
+#begin hd\images\4773348909_7b5bd00743_b.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\4773348909_7b5bd00743_b.jpg
+
+#begin hd\images\4773348909_7b5bd00743_b.mgcontent
+/importer:
+/processor:
+/build:hd\images\4773348909_7b5bd00743_b.mgcontent
+
+#begin hd\images\4773348909_7b5bd00743_b.xnb
+/importer:
+/processor:
+/build:hd\images\4773348909_7b5bd00743_b.xnb
+
+#begin hd\images\silla_blue.mgcontent
+/importer:
+/processor:
+/build:hd\images\silla_blue.mgcontent
+
+#begin hd\images\silla_blue.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\silla_blue.png
+
+#begin hd\images\silla_blue.xnb
+/importer:
+/processor:
+/build:hd\images\silla_blue.xnb
+
+#begin hd\images\silla_cyan.mgcontent
+/importer:
+/processor:
+/build:hd\images\silla_cyan.mgcontent
+
+#begin hd\images\silla_cyan.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\silla_cyan.png
+
+#begin hd\images\silla_cyan.xnb
+/importer:
+/processor:
+/build:hd\images\silla_cyan.xnb
+
+#begin hd\images\silla_green.mgcontent
+/importer:
+/processor:
+/build:hd\images\silla_green.mgcontent
+
+#begin hd\images\silla_green.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\silla_green.png
+
+#begin hd\images\silla_green.xnb
+/importer:
+/processor:
+/build:hd\images\silla_green.xnb
+
+#begin hd\images\silla_magenta.mgcontent
+/importer:
+/processor:
+/build:hd\images\silla_magenta.mgcontent
+
+#begin hd\images\silla_magenta.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\silla_magenta.png
+
+#begin hd\images\silla_magenta.xnb
+/importer:
+/processor:
+/build:hd\images\silla_magenta.xnb
+
+#begin hd\images\silla_orange.mgcontent
+/importer:
+/processor:
+/build:hd\images\silla_orange.mgcontent
+
+#begin hd\images\silla_orange.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\silla_orange.png
+
+#begin hd\images\silla_orange.xnb
+/importer:
+/processor:
+/build:hd\images\silla_orange.xnb
+
+#begin hd\images\silla_red.mgcontent
+/importer:
+/processor:
+/build:hd\images\silla_red.mgcontent
+
+#begin hd\images\silla_red.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hd\images\silla_red.png
+
+#begin hd\images\silla_red.xnb
+/importer:
+/processor:
+/build:hd\images\silla_red.xnb
+
+#begin bgm/sillas.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:bgm/sillas.wav
+
+#begin bgm/sillas2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:bgm/sillas2.mp3
+
+#begin sounds/chooce.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/chooce.wav
+
+#begin sounds/coin.mgcontent
+/importer:
+/processor:
+/build:sounds/coin.mgcontent
+
 #begin sounds/coin.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:sounds/coin.wav
+
+#begin sounds/coin.xnb
+/importer:
+/processor:
+/build:sounds/coin.xnb
+
+#begin sounds/select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/select.wav
+
+#begin sounds/start.mgcontent
+/importer:
+/processor:
+/build:sounds/start.mgcontent
+
+#begin sounds/start.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/start.wav
+
+#begin sounds/start.xnb
+/importer:
+/processor:
+/build:sounds/start.xnb
+
+#begin bgm/title.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:bgm/title.wav
 

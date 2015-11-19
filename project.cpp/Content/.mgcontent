@@ -4,7 +4,6 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/sounds/start.wav</File>
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/4773348909_7b5bd00743_b.jpg</File>
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_blue.png</File>
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_cyan.png</File>
@@ -12,6 +11,12 @@
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_magenta.png</File>
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_orange.png</File>
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_red.png</File>
+    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/bgm/sillas.wav</File>
+    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/bgm/sillas2.mp3</File>
+    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/sounds/chooce.wav</File>
     <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/sounds/coin.wav</File>
+    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/sounds/select.wav</File>
+    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/sounds/start.wav</File>
+    <File>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/bgm/title.wav</File>
   </SourceFiles>
 </SourceFileCollection>
