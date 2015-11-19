@@ -9,10 +9,10 @@ namespace project.cpp.Core
     class GameData
     {
         //una clase simplemente para guardar puntos, turnos, jugadores y cualquier cosa importante que haya que patear de pantalla en pantalla
-        public int players;
-        public int[] scores;
-        public int turnsPassed;
-        public int currentTurn;
+        public static int players;
+        public static int[] scores;
+        public static int turnsPassed;
+        public static int currentTurn;
 
 
     }
