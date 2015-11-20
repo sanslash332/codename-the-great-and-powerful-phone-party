@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_blue.png</SourceFile>
+  <SourceFile>D:/programacion/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_blue.png</SourceFile>
   <SourceTime>2015-10-29T01:40:04.2241544-03:00</SourceTime>
-  <DestFile>D:/programación/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_blue.xnb</DestFile>
-  <DestTime>2015-11-03T18:49:46.7581964-03:00</DestTime>
+  <DestFile>D:/programacion/c#/codename-the-great-and-powerful-phone-party/project.cpp/Content/hd/images/silla_blue.xnb</DestFile>
+  <DestTime>2015-11-20T02:41:23.3324261-03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-09-04T03:26:22-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

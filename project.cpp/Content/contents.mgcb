@@ -385,3 +385,15 @@
 /processorParam:Quality=Best
 /build:sounds/thunder.wav
 
+#begin sounds/msgappear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/msgappear.wav
+
+#begin sounds/go.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/go.wav
+
