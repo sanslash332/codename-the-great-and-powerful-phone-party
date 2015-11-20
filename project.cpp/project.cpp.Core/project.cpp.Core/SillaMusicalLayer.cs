@@ -11,9 +11,20 @@ namespace project.cpp.Core
 
         // Define a label variable
         CCLabel label;
-        CCSprite redChair, blueChair, greenChair, magentaChair, cyanChair, orangeChair;
+        CCSprite redChair, greenChair, blueChair,  magentaChair, cyanChair, orangeChair;
         List<CCSprite> sillas = new List<CCSprite>();
         int musicId;
+        string soundJump = "sounds/jump";
+        string soundFall = "sounds/fall";
+        string soundSit = "sounds/sit";
+        string soundChooce = "sounds/chooce";
+         bool started;
+        int rownd;
+        CCLabel p1button, p2button, p3button, p4button;
+        List<bool> buttonIsBlocked;
+        int timePassed;
+        bool inmusic;
+
 
 
         public SillaMusicalLayer() : base(CCColor4B.White)
@@ -25,29 +36,64 @@ namespace project.cpp.Core
             cyanChair = new CCSprite("images/silla_cyan.png");
             orangeChair = new CCSprite("images/silla_orange.png");
 
-            sillas.Add(redChair);
-            sillas.Add(blueChair);
-            sillas.Add(greenChair);
-            sillas.Add(magentaChair);
-            sillas.Add(cyanChair);
-            sillas.Add(orangeChair);
+            p1button = new CCLabel("p1", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            p2button = new CCLabel("p2", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            p3button = new CCLabel("p3", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            p4button = new CCLabel("p4", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            label = new CCLabel("bienvenido a la cilla musical. El último jugador en presionar su botón cuando la música pare, perderá. ¡ojo! No presiones si la música aún suena, te irá mal. Toque para iniciar.", "font/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            AddChild(label);
+            rownd = 0;
+            started = false;
+            inmusic = false;
+            timePassed = 0;
+            buttonIsBlocked = new List<bool>();
+            
+            
 
-            AddChild(redChair);
-            AddChild(blueChair);
-            AddChild(greenChair);
-            AddChild(magentaChair);
-            AddChild(cyanChair);
-            AddChild(orangeChair);
+            
+            sillas.Add(redChair);
+            buttonIsBlocked.Add(false);
+            AddChild(p1button);
+            if (GameData.players>=2)
+            {
+
+                sillas.Add(greenChair);
+                buttonIsBlocked.Add(false);
+                AddChild(p2button);
+
+            }
+            if(GameData.players>=3)
+            {
+                sillas.Add(blueChair);
+                AddChild(p3button);
+                buttonIsBlocked.Add(false);
+            }
+            if(GameData.players>=4)
+            {
+                sillas.Add(orangeChair);
+                AddChild(p4button);
+                buttonIsBlocked.Add(false);
+            }
+
+            
+            //sillas.Add(magentaChair);
+            //sillas.Add(cyanChair);
+            
+
+            //AddChild(redChair);
+            //AddChild(blueChair);
+            //AddChild(greenChair);
+            //AddChild(magentaChair);
+            //AddChild(cyanChair);
+            //AddChild(orangeChair);
 
             CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/sillas");
             musicId = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/sillas", true);
             CCSimpleAudioEngine.SharedEngine.PauseEffect(musicId);
 
             // create and initialize a Label
-            label = new CCLabel("Silla Musical", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            
 
-            // add the label as a child to this Layer
-            AddChild(label);
 
         }
 

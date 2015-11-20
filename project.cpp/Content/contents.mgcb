@@ -6,7 +6,7 @@
 /platform:Windows
 /config:
 /profile:Reach
-/compress:False
+/compress:True
 
 #-------------------------------- References --------------------------------#
 
@@ -273,11 +273,27 @@
 /processorParam:Quality=Best
 /build:bgm/sillas2.mp3
 
+#begin bgm/title.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:bgm/title.wav
+
+#begin sounds/chooce.mgcontent
+/importer:
+/processor:
+/build:sounds/chooce.mgcontent
+
 #begin sounds/chooce.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:sounds/chooce.wav
+
+#begin sounds/chooce.xnb
+/importer:
+/processor:
+/build:sounds/chooce.xnb
 
 #begin sounds/coin.mgcontent
 /importer:
@@ -295,11 +311,51 @@
 /processor:
 /build:sounds/coin.xnb
 
+#begin sounds/endwistle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/endwistle.wav
+
+#begin sounds/fall.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/fall.wav
+
+#begin sounds/jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/jump.wav
+
+#begin sounds/score.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/score.wav
+
+#begin sounds/select.mgcontent
+/importer:
+/processor:
+/build:sounds/select.mgcontent
+
 #begin sounds/select.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:sounds/select.wav
+
+#begin sounds/select.xnb
+/importer:
+/processor:
+/build:sounds/select.xnb
+
+#begin sounds/sit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/sit.wav
 
 #begin sounds/start.mgcontent
 /importer:
@@ -317,9 +373,15 @@
 /processor:
 /build:sounds/start.xnb
 
-#begin bgm/title.wav
+#begin sounds/throw.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:bgm/title.wav
+/build:sounds/throw.wav
+
+#begin sounds/thunder.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/thunder.wav
 

@@ -148,6 +148,7 @@ namespace project.cpp.Core
         bool CheckIfLabelTouched(CCTouch touch, CCLabel label)
         {
             CCRect BoundingBox = label.BoundingBox;
+            
             //Tuve que agregar un offset de 20 en al minY y maxY porque la boundingBox de las labels estaba mala.
             if(touch.Location.X > BoundingBox.MinX && touch.Location.X < BoundingBox.MaxX && touch.Location.Y < BoundingBox.MaxY + 20 && touch.Location.Y > BoundingBox.MinY + 20)
             {
@@ -161,8 +162,8 @@ namespace project.cpp.Core
             if (touches.Count > 0)
             {
                 CCTouch touch = touches[0];
-
-                if (touch.Location == label.Position)
+                
+                if (CheckIfLabelTouched(touch, label))
                 {
 
 
