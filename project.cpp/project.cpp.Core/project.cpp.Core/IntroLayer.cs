@@ -62,7 +62,7 @@ namespace project.cpp.Core
 
             // Use the bounds to layout the positioning of our drawable assets
             var bounds = VisibleBoundsWorldspace;
-            mid=CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/title");
+            mid=CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/title",true);
 
             // position the label on the center of the screen
             label.Position = bounds.Center;
@@ -145,32 +145,21 @@ namespace project.cpp.Core
 
         }
 
-        bool CheckIfLabelTouched(CCTouch touch, CCLabel label)
-        {
-            CCRect BoundingBox = label.BoundingBox;
-            
-            //Tuve que agregar un offset de 20 en al minY y maxY porque la boundingBox de las labels estaba mala.
-            if(touch.Location.X > BoundingBox.MinX && touch.Location.X < BoundingBox.MaxX && touch.Location.Y < BoundingBox.MaxY + 20 && touch.Location.Y > BoundingBox.MinY + 20)
-            {
-                return true;
-            }
-            return false;
-        }
-
+        
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
         {
             if (touches.Count > 0)
             {
                 CCTouch touch = touches[0];
                 
-                if (CheckIfLabelTouched(touch, label))
+                if (GameData.CheckIfLabelTouched(touch, label))
                 {
 
 
                     CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/start");
                     passToGame();
                 }
-                else if (CheckIfLabelTouched(touch, oneplayerlabel))
+                else if (GameData.CheckIfLabelTouched(touch, oneplayerlabel))
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players = 1;
@@ -180,7 +169,7 @@ namespace project.cpp.Core
                     fourplayerLabel.Color = CCColor3B.Green;
 
                 }
-                else if (CheckIfLabelTouched(touch, twoplayerlabels))
+                else if (GameData.CheckIfLabelTouched(touch, twoplayerlabels))
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players = 2;
@@ -190,7 +179,7 @@ namespace project.cpp.Core
                     fourplayerLabel.Color = CCColor3B.Green;
 
                 }
-                else if (CheckIfLabelTouched(touch, threeplayerlabel))
+                else if (GameData.CheckIfLabelTouched(touch, threeplayerlabel))
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players= 3;
@@ -201,7 +190,7 @@ namespace project.cpp.Core
 
 
                 }
-                else if (CheckIfLabelTouched(touch, fourplayerLabel))
+                else if (GameData.CheckIfLabelTouched(touch, fourplayerLabel))
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players = 4;

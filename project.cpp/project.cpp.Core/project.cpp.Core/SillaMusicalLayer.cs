@@ -25,10 +25,14 @@ namespace project.cpp.Core
         int rownd;
         CCLabel p1button, p2button, p3button, p4button;
         List<bool> buttonIsBlocked;
+        List<bool> playerIsSat;
         int timePassed;
+        int lastPlayerPressed;
         bool inmusic;
         bool inSplash;
         List<CCLabel> buttons;
+        List<bool> playerIsRetired;
+        bool end = false;
 
 
         public SillaMusicalLayer() : base(CCColor4B.White)
@@ -49,19 +53,23 @@ namespace project.cpp.Core
             p4button = new CCLabel("p4", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             p4button.Color = CCColor3B.Orange;
             buttons = new List<CCLabel>();
+            playerIsSat = new List<bool>();
 
-            label = new CCLabel("bienvenido a la cilla musical. El último jugador en presionar su botón cuando la música pare, perderá. ¡ojo! No presiones si la música aún suena, te irá mal. Toque para iniciar.", "font/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            label = new CCLabel("bienvenido a la cilla musical. El último jugador en presionar su botón cuando la música pare, perderá. \n ¡ojo! No presiones si la música aún suena, te irá mal.\n Toque para iniciar.", "fonts/MarkerFelt", 16, CCLabelFormat.SystemFont);
             AddChild(label);
             rownd = 0;
+            lastPlayerPressed = -1;
             started = false;
             inmusic = false;
             timePassed = 0;
             inSplash = false;
 
             buttonIsBlocked = new List<bool>();
-          
+            playerIsRetired = new List<bool>();
             sillas.Add(redChair);
             buttonIsBlocked.Add(false);
+            playerIsSat.Add(false);
+            playerIsRetired.Add(false);
             buttons.Add(p1button);
             AddChild(p1button);
             if (GameData.players>=2)
@@ -69,6 +77,8 @@ namespace project.cpp.Core
 
                 sillas.Add(greenChair);
                 buttonIsBlocked.Add(false);
+                playerIsRetired.Add(false);
+                playerIsSat.Add(false);
                 AddChild(p2button);
                 buttons.Add(p2button);
 
@@ -77,6 +87,8 @@ namespace project.cpp.Core
             {
                 sillas.Add(blueChair);
                 AddChild(p3button);
+                playerIsSat.Add(false);
+                playerIsRetired.Add(false);
                 buttonIsBlocked.Add(false);
                 buttons.Add(p3button);
             }
@@ -84,8 +96,10 @@ namespace project.cpp.Core
             {
                 sillas.Add(orangeChair);
                 AddChild(p4button);
+                playerIsRetired.Add(false);
                 buttonIsBlocked.Add(false);
                 buttons.Add(p4button);
+                playerIsSat.Add(false);
             }
 
             
@@ -124,6 +138,10 @@ namespace project.cpp.Core
             for (int i = 0; i < sillas.Count; i++)
             {
                 sillas[i].RemoveFromParent();
+                if(playerIsRetired[i])
+                {
+                    continue;
+                }
 
                 double xpos = cx + radio * Math.Sin(2 * Math.PI / 4 * i);
                 double ypos = cy + radio * Math.Cos(2 * Math.PI / 4 * i);
@@ -139,6 +157,7 @@ namespace project.cpp.Core
         protected override void AddedToScene()
         {
             base.AddedToScene();
+            CCSimpleAudioEngine.SharedEngine.StopEffect(musicId);
 
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundMSG);
             
@@ -147,12 +166,14 @@ namespace project.cpp.Core
             var bounds = VisibleBoundsWorldspace;
 
             // position the label on the center of the screen
+            
+            label.Color = CCColor3B.Black;
             label.Position = bounds.Center;
 
-            p1button.Position = new CCPoint(10, 10);
-            p2button.Position = new CCPoint(200, 10);
-            p3button.Position = new CCPoint(10, 250);
-            p4button.Position = new CCPoint(200, 250);
+            p1button.Position = new CCPoint(400, 200);
+            p2button.Position = new CCPoint(600, 200);
+            p3button.Position = new CCPoint(400, 100);
+            p4button.Position = new CCPoint(600, 100);
 
 
             // Register for touch events
@@ -170,14 +191,19 @@ namespace project.cpp.Core
         async void prepareRown()
         {
             inSplash = true;
-             
-            label.Text = "atentos a la música!";
-            addCillas();
-            await Task.Delay(500);
+            CCSimpleAudioEngine.SharedEngine.PlayEffect(soundMSG);
+
+            label.RemoveFromParent();
+            label.Text = "atentos a la música! Iniciando el rownd" + rownd.ToString() +  "!";
+            AddChild(label);
+            
+            await Task.Delay(1000);
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundGo);
 
-            await Task.Delay(200);
+            
             label.RemoveFromParent();
+            addCillas();
+            await Task.Delay(100);
             inmusic = true;
             inSplash = false;
             timePassed = 0;
@@ -185,7 +211,7 @@ namespace project.cpp.Core
 
             CCSimpleAudioEngine.SharedEngine.ResumeEffect(musicId);
 
-
+            lastPlayerPressed = -1;
 
         }
 
@@ -204,18 +230,147 @@ namespace project.cpp.Core
                 }
 
             }
+            else if(!inmusic&&!inSplash&&timePassed>=120)
+            {
+                
+                inSplash = true;
 
+
+                endRownd();
+            }
 
             }
 
-        
+        async void processPress(int playerPressed)
+        {
+            if(inmusic)
+            {
+                if (!buttonIsBlocked[playerPressed]&&!playerIsRetired[playerPressed])
+                {
+
+
+                    CCSimpleAudioEngine.SharedEngine.PlayEffect(soundFall);
+                    buttons[playerPressed].Color = CCColor3B.Black;
+
+                    buttonIsBlocked[playerPressed] = true;
+                    
+                    lastPlayerPressed = playerPressed;
+
+
+                }
+            }
+            else if(!inmusic&&!inSplash)
+            {
+                if(!playerIsSat[playerPressed] && !buttonIsBlocked[playerPressed]&&!playerIsRetired[playerPressed])
+                {
+                    CCSimpleAudioEngine.SharedEngine.PlayEffect(soundJump);
+                    bool cansit = false;
+                    for(int i = 0; i<playerIsSat.Count;i++)
+                    {
+                        if(i== playerPressed||playerIsRetired[i])
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            if(!playerIsSat[i])
+                            {
+                                cansit = true;
+                            }
+                        }
+                    }
+
+                    if(cansit)
+                    {
+                        playerIsSat[playerPressed] = true;
+                        lastPlayerPressed = playerPressed;
+                        await Task.Delay(200);
+                        CCSimpleAudioEngine.SharedEngine.PlayEffect(soundSit);
+
+
+                    }
+                    else
+                    {
+                        buttonIsBlocked[playerPressed] = true;
+                        playerIsRetired[playerPressed] = true;
+                        lastPlayerPressed = playerPressed;
+
+                        await Task.Delay(200);
+                        CCSimpleAudioEngine.SharedEngine.PlayEffect(soundFall);
+
+                    }
+
+                }
+
+            }
+        }
 
 
         void endRownd()
         {
+            rownd++;
+            int remaindPlayers = 0;
+            int winner = -1;
 
+            for(int i = 0; i < playerIsRetired.Count;i++)
+            {
+                if(buttonIsBlocked[i]||(!buttonIsBlocked[i]&&!playerIsSat[i]))
+                {
+                    playerIsRetired[i] = true;
+
+                }
+                if(!playerIsRetired[i])
+                {
+                    remaindPlayers++;
+                    winner = i;
+                    playerIsSat[i] = false;
+                    buttonIsBlocked[i] = false;
+                }
+            }
+            timePassed = 0;
+            inmusic = false;
+            if (remaindPlayers == 1)
+            {
+                setEnd(winner);
+
+            }
+            else if(remaindPlayers==0)
+            {
+                winner = lastPlayerPressed;
+                setEnd(winner);
+            }
+            else
+            {
+
+
+                inSplash = true;
+                inmusic = false;
+                prepareRown();
+            }
         }
 
+       async  void setEnd(int winner)
+        {
+            CCSimpleAudioEngine.SharedEngine.ResumeAllEffects();
+            CCSimpleAudioEngine.SharedEngine.StopEffect(musicId);
+
+            CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/endwistle");
+            AddChild(label);
+            label.Text = "¿y el ganador es! ... ";
+            await Task.Delay(600);
+            if(winner==-1)
+            {
+                label.Text = " ¡nadie porque fue un empate! ¡malos! \n toque para continuar ";
+            }
+            else
+            {
+                winner++;
+                label.Text = " el jugador! " + winner.ToString() + " ¡felicidades! \n toque para continuar ";
+            }
+            
+            end = true;
+
+        }
         void setStart()
         {
             started = true;
@@ -229,12 +384,47 @@ namespace project.cpp.Core
         }
         void onKeyPress(CCEventKeyboard keyEvent)
         {
+
+            if(end&&keyEvent.Keys== CCKeys.Enter)
+            {
+                returnToMenu();
+            }
             if(!started&&keyEvent.Keys== CCKeys.Enter)
             {
                 setStart();
 
 
             }
+            else if(started&& keyEvent.Keys== CCKeys.Z)
+            {
+                processPress(0);
+
+            }
+            else if(started&&keyEvent.Keys== CCKeys.Q&&GameData.players>=2)
+            {
+                processPress(1);
+            }
+            else if(started&&keyEvent.Keys== CCKeys.M&&GameData.players>=3)
+            {
+                processPress(2);
+            }
+            else if(started&&keyEvent.Keys== CCKeys.P&&GameData.players>=4)
+            {
+                processPress(3);
+
+            }
+
+        }
+
+
+        public void returnToMenu()
+        {
+            
+            CCSimpleAudioEngine.SharedEngine.PlayEffect(soundChooce);
+            var newScene = new CCScene(Window);
+            var silla = new IntroLayer();
+            newScene.AddChild(silla);
+            Window.DefaultDirector.ReplaceScene(newScene);
 
         }
 
@@ -243,6 +433,41 @@ namespace project.cpp.Core
             if (touches.Count > 0)
             {
                 // Perform touch handling here
+
+            foreach(CCTouch touch in touches)
+                {
+                    if (end&& GameData.CheckIfLabelTouched(touch, label))
+                    {
+                        returnToMenu();
+                    }
+
+
+                        if (!started && GameData.CheckIfLabelTouched(touch,label))
+                    {
+                        setStart();
+
+
+                    }
+                    else if (started && GameData.CheckIfLabelTouched(touch,p1button))
+                    {
+                        processPress(0);
+
+                    }
+                    else if (started &&GameData.CheckIfLabelTouched(touch, p2button) && GameData.players >= 2)
+                    {
+                        processPress(1);
+                    }
+                    else if (started &&GameData.CheckIfLabelTouched(touch, p3button)  && GameData.players >= 3)
+                    {
+                        processPress(2);
+                    }
+                    else if (started &&  GameData.CheckIfLabelTouched(touch, p4button) && GameData.players >= 4)
+                    {
+                        processPress(3);
+
+                    }
+
+                }
             }
         }
     }
