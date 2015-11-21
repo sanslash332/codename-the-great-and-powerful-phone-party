@@ -51,11 +51,11 @@ namespace project.cpp.Core
             p3button = new CCLabel("p3", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             p3button.Color = CCColor3B.Green;
             p4button = new CCLabel("p4", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            p4button.Color = CCColor3B.Orange;
+            p4button.Color = CCColor3B.Yellow;
             buttons = new List<CCLabel>();
             playerIsSat = new List<bool>();
 
-            label = new CCLabel("bienvenido a la cilla musical. El último jugador en presionar su botón cuando la música pare, perderá. \n ¡ojo! No presiones si la música aún suena, te irá mal.\n Toque para iniciar.", "fonts/MarkerFelt", 16, CCLabelFormat.SystemFont);
+            label = new CCLabel("bienvenido a la silla musical. El último jugador en presionar su botón cuando la música pare, perderá. \n ¡ojo! No presiones si la música aún suena, te irá mal.\n Toque para iniciar.", "fonts/MarkerFelt", 16, CCLabelFormat.SystemFont);
             AddChild(label);
             rownd = 0;
             lastPlayerPressed = -1;
@@ -170,10 +170,10 @@ namespace project.cpp.Core
             label.Color = CCColor3B.Black;
             label.Position = bounds.Center;
 
-            p1button.Position = new CCPoint(400, 200);
-            p2button.Position = new CCPoint(600, 200);
-            p3button.Position = new CCPoint(400, 100);
-            p4button.Position = new CCPoint(600, 100);
+            p1button.Position = GetPosicionJugador(1);
+            p2button.Position = GetPosicionJugador(2);
+            p3button.Position = GetPosicionJugador(3);
+            p4button.Position = GetPosicionJugador(4);
 
 
             // Register for touch events
@@ -194,7 +194,7 @@ namespace project.cpp.Core
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundMSG);
 
             label.RemoveFromParent();
-            label.Text = "atentos a la música! Iniciando el rownd" + rownd.ToString() +  "!";
+            label.Text = "atentos a la música! Iniciando la ronda" + rownd.ToString() +  "!";
             AddChild(label);
             
             await Task.Delay(1000);
@@ -400,11 +400,11 @@ namespace project.cpp.Core
                 processPress(0);
 
             }
-            else if(started&&keyEvent.Keys== CCKeys.Q&&GameData.players>=2)
+            else if(started&&keyEvent.Keys== CCKeys.M&&GameData.players>=2)
             {
                 processPress(1);
             }
-            else if(started&&keyEvent.Keys== CCKeys.M&&GameData.players>=3)
+            else if(started&&keyEvent.Keys== CCKeys.Q&&GameData.players>=3)
             {
                 processPress(2);
             }
@@ -426,6 +426,31 @@ namespace project.cpp.Core
             newScene.AddChild(silla);
             Window.DefaultDirector.ReplaceScene(newScene);
 
+        }
+
+        private CCPoint GetPosicionJugador(int idJugador)
+        {
+            var bounds = VisibleBoundsWorldspace;
+            CCPoint retorno;
+            float offset = 50;
+            float x = 0;
+            float y = 0;
+            switch (idJugador)
+            {
+                case 1:
+                    x = bounds.MinX + offset; y = bounds.MinY + offset; break;
+                case 2:
+                    x = bounds.MaxX - offset; y = bounds.MinY + offset; break;
+                case 3:
+                    x = bounds.MinX + offset; y = bounds.MaxY - offset; break;
+                case 4:
+                    x = bounds.MaxX - offset; y = bounds.MaxY - offset; break;
+                default:
+                    break;
+
+            }
+            retorno = new CCPoint(x, y);
+            return retorno;
         }
 
         void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)

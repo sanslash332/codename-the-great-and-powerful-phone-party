@@ -215,7 +215,7 @@ namespace project.cpp.Core
             GameData.scores = new int[GameData.players];
             CCSimpleAudioEngine.SharedEngine.StopEffect(mid);
             var newScene = new CCScene(Window);
-            var silla = new SillaMusicalLayer();
+            var silla = new SeleccionJuego();
             newScene.AddChild(silla);
             Window.DefaultDirector.ReplaceScene(newScene);
             
