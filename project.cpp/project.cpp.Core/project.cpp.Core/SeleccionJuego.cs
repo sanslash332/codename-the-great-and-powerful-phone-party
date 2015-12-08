@@ -17,7 +17,7 @@ namespace project.cpp.Core
         CCLabel label;
         CCLabel sillasLabel;
         CCLabel dictadoLabel;
-        CCLabel tableroLabel;
+        CCLabel maletaLabel;
         CCSprite fondo;
         string coinsound = "sounds/coin";
         string startsound = "sounds/start";
@@ -41,9 +41,9 @@ namespace project.cpp.Core
             dictadoLabel = new CCLabel("Nombre no definido", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             dictadoLabel.Color = CCColor3B.Green;
             AddChild(dictadoLabel);
-            tableroLabel = new CCLabel("Tablero " , "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            tableroLabel.Color = CCColor3B.Black;
-            AddChild(tableroLabel);
+            maletaLabel = new CCLabel("Tablero " , "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            maletaLabel.Color = CCColor3B.Yellow;
+            AddChild(maletaLabel);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(startsound);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(coinsound);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(selectsound);
@@ -62,7 +62,7 @@ namespace project.cpp.Core
             //Ubicar las 6 sillas al inicio
             sillasLabel.Position = new CCPoint(400, 250);
             dictadoLabel.Position = new CCPoint(600, 250);
-            tableroLabel.Position = new CCPoint(800, 250);
+            maletaLabel.Position = new CCPoint(800, 250);
             GameData.ResizeBackground(fondo, this);
             //TODO hallar el centro de la pantalla   
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin", false);
@@ -127,7 +127,12 @@ namespace project.cpp.Core
                     passToGame(2);
 
                 }
-                
+                else if (GameData.CheckIfLabelTouched(touch, maletaLabel))
+                {
+                    CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/start");
+                    passToGame(3);
+
+                }
                 else
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin");
@@ -150,10 +155,17 @@ namespace project.cpp.Core
                 Window.DefaultDirector.ReplaceScene(newScene);
 
             }
-            else
+            else if (i == 2)
             {
                 var dictado = new DictadoLayercs();
                 newScene.AddChild(dictado);
+                Window.DefaultDirector.ReplaceScene(newScene);
+
+            }
+            else
+            {
+                var maleta = new MaletaLayer();
+                newScene.AddChild(maleta);
                 Window.DefaultDirector.ReplaceScene(newScene);
 
             }

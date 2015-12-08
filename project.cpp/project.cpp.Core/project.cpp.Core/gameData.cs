@@ -51,5 +51,12 @@ namespace project.cpp.Core
              background.ScaleX = xlength / background.ContentSize.Width;
              background.ScaleY = ylength / background.ContentSize.Height;
         }
+
+        public static void ResizeSprite(CCSprite sprite, float factor)
+        {
+            sprite.ScaleX = factor;
+            sprite.ScaleY = factor;
+
+        }
     }
 }
