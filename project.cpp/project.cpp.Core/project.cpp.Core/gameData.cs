@@ -69,8 +69,8 @@ namespace project.cpp.Core
 			random1 = random1 /10;
 			double random2 = r.Next(0, 10);
 			random2 = random2 /10;
-			if(isPc) output={boxX_pc[level-1]-1+random1 , boxY_pc[level-1]-1+random2};
-			else output={boxX_android[level-1]-1+random1 , boxY_android[level-1]-1+random2};
+			if(isPc) output= new double[]{boxX_pc[level-1]-1+random1 , boxY_pc[level-1]-1+random2};
+            else output = new double[] { boxX_android[level - 1] - 1 + random1, boxY_android[level - 1] - 1 + random2 };
 			
 			return output;
 		}
