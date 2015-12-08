@@ -19,6 +19,7 @@ namespace project.cpp.Core
         CCLabel twoplayerlabels;
         CCLabel threeplayerlabel;
         CCLabel fourplayerLabel;
+        CCSprite fondo;
         string coinsound = "sounds/coin";
         string startsound = "sounds/start";
         string selectsound = "sounds/select";
@@ -32,8 +33,8 @@ namespace project.cpp.Core
             CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/title");
 
             label = new CCLabel("Seleccione cuantos jugadores van a jugar, y luego presione aquí.", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            
 
+            AgregarFondo();
             // add the label as a child to this Layer
             AddChild(label);
             oneplayerlabel = new CCLabel("1 jugador", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
@@ -66,7 +67,7 @@ namespace project.cpp.Core
 
             // position the label on the center of the screen
             label.Position = bounds.Center;
-
+            fondo.Position = bounds.Center;
             //Ubicar las 6 sillas al inicio
             oneplayerlabel.Position = new CCPoint(400, 250);
             twoplayerlabels.Position = new CCPoint(600, 250);
@@ -207,6 +208,11 @@ namespace project.cpp.Core
 
                 // Perform touch handling here
             }
+        }
+        private void AgregarFondo()
+        {
+            fondo = new CCSprite("images/ciudades_pc");
+            AddChild(fondo);
         }
 
 

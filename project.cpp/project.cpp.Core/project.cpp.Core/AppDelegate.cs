@@ -36,7 +36,7 @@ namespace project.cpp.Core
             }
 
             var scene = new CCScene(mainWindow);
-            var introLayer = new IntroLayer();
+            var introLayer = new LayerInicio();
 
             scene.AddChild(introLayer);
             CCSize tamaño = scene.Window.WindowSizeInPixels;

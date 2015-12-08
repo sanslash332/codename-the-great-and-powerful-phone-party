@@ -23,20 +23,22 @@ namespace project.cpp.Core
         string soundChooce = "sounds/chooce";
          bool started;
         int rownd;
-        CCLabel p1button, p2button, p3button, p4button;
+        CCSprite p1button, p2button, p3button, p4button;
+        CCSprite fondo;
         List<bool> buttonIsBlocked;
         List<bool> playerIsSat;
         int timePassed;
         int lastPlayerPressed;
         bool inmusic;
         bool inSplash;
-        List<CCLabel> buttons;
+        List<CCSprite> buttons;
         List<bool> playerIsRetired;
         bool end = false;
 
 
         public SillaMusicalLayer() : base(CCColor4B.White)
         {
+            AgregarFondo();
             redChair = new CCSprite("images/silla_red.png");
             blueChair = new CCSprite("images/silla_blue.png");
             greenChair = new CCSprite("images/silla_green.png");
@@ -44,15 +46,13 @@ namespace project.cpp.Core
             cyanChair = new CCSprite("images/silla_cyan.png");
             orangeChair = new CCSprite("images/silla_orange.png");
 
-            p1button = new CCLabel("p1", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            p1button.Color = CCColor3B.Blue;
-            p2button = new CCLabel("p2", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            p2button.Color = CCColor3B.Red;
-            p3button = new CCLabel("p3", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            p3button.Color = CCColor3B.Green;
-            p4button = new CCLabel("p4", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            p4button.Color = CCColor3B.Yellow;
-            buttons = new List<CCLabel>();
+            p1button = new CCSprite("images/p1_logo");
+            p2button = new CCSprite("images/p2_logo");
+            p3button = new CCSprite("images/p3_logo");
+            p4button = new CCSprite("images/p4_logo");
+
+
+            buttons = new List<CCSprite>();
             playerIsSat = new List<bool>();
 
             label = new CCLabel("bienvenido a la silla musical. El último jugador en presionar su botón cuando la música pare, perderá. \n ¡ojo! No presiones si la música aún suena, te irá mal.\n Toque para iniciar.", "fonts/MarkerFelt", 16, CCLabelFormat.SystemFont);
@@ -148,8 +148,9 @@ namespace project.cpp.Core
                 CCPoint position = new CCPoint((float)xpos, (float)ypos);
                 AddChild(sillas[i]);
                 sillas[i].Position = position;
-                sillas[i].Rotation = (float)(180 + 360 / 6 * i);
+                sillas[i].Rotation = 90 * i;
             }
+
 
 
 
@@ -157,6 +158,8 @@ namespace project.cpp.Core
         protected override void AddedToScene()
         {
             base.AddedToScene();
+            CCSize tamaño = Scene.Window.WindowSizeInPixels;
+            fondo.Position = tamaño.Center;
             CCSimpleAudioEngine.SharedEngine.StopEffect(musicId);
 
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundMSG);
@@ -186,6 +189,12 @@ namespace project.cpp.Core
             AddEventListener(touchListener, this);
             AddEventListener(keyboardListener, this);
 
+        }
+
+        private void AgregarFondo()
+        {
+            fondo = new CCSprite("images/silla_pc");
+            AddChild(fondo);
         }
 
         async void prepareRown()
@@ -247,14 +256,12 @@ namespace project.cpp.Core
             {
                 if (!buttonIsBlocked[playerPressed]&&!playerIsRetired[playerPressed])
                 {
-
-
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(soundFall);
                     buttons[playerPressed].Color = CCColor3B.Black;
 
                     buttonIsBlocked[playerPressed] = true;
                     
-                    lastPlayerPressed = playerPressed;
+                    //lastPlayerPressed = playerPressed;
 
 
                 }
@@ -341,7 +348,6 @@ namespace project.cpp.Core
             }
             else
             {
-
 
                 inSplash = true;
                 inmusic = false;
@@ -473,20 +479,20 @@ namespace project.cpp.Core
 
 
                     }
-                    else if (started && GameData.CheckIfLabelTouched(touch,p1button))
+                    else if (started && GameData.CheckIfSpriteTouched(touch,p1button))
                     {
                         processPress(0);
 
                     }
-                    else if (started &&GameData.CheckIfLabelTouched(touch, p2button) && GameData.players >= 2)
+                    else if (started &&GameData.CheckIfSpriteTouched(touch, p2button) && GameData.players >= 2)
                     {
                         processPress(1);
                     }
-                    else if (started &&GameData.CheckIfLabelTouched(touch, p3button)  && GameData.players >= 3)
+                    else if (started &&GameData.CheckIfSpriteTouched(touch, p3button)  && GameData.players >= 3)
                     {
                         processPress(2);
                     }
-                    else if (started &&  GameData.CheckIfLabelTouched(touch, p4button) && GameData.players >= 4)
+                    else if (started &&  GameData.CheckIfSpriteTouched(touch, p4button) && GameData.players >= 4)
                     {
                         processPress(3);
 

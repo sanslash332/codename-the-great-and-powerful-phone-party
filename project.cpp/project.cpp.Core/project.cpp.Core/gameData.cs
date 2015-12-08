@@ -27,6 +27,17 @@ namespace project.cpp.Core
         }
 
 
+        public static bool CheckIfSpriteTouched(CCTouch touch, CCSprite label)
+        {
+            CCRect BoundingBox = label.BoundingBox;
+
+            //Tuve que agregar un offset de 20 en al minY y maxY porque la boundingBox de las labels estaba mala.
+            if (touch.Location.X > BoundingBox.MinX && touch.Location.X < BoundingBox.MaxX && touch.Location.Y < BoundingBox.MaxY + 20 && touch.Location.Y > BoundingBox.MinY)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

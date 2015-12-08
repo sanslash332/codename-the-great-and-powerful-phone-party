@@ -17,6 +17,8 @@ namespace project.cpp.Core
         CCLabel label;
         CCLabel sillasLabel;
         CCLabel dictadoLabel;
+        CCLabel tableroLabel;
+        CCSprite fondo;
         string coinsound = "sounds/coin";
         string startsound = "sounds/start";
         string selectsound = "sounds/select";
@@ -30,7 +32,7 @@ namespace project.cpp.Core
 
             label = new CCLabel("Seleccione el juego a jugar!", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
 
-
+            AgregarFondo();
             // add the label as a child to this Layer
             AddChild(label);
             sillasLabel = new CCLabel("Sillas musicales", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
@@ -39,6 +41,9 @@ namespace project.cpp.Core
             dictadoLabel = new CCLabel("Nombre no definido", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             dictadoLabel.Color = CCColor3B.Green;
             AddChild(dictadoLabel);
+            tableroLabel = new CCLabel("Tablero", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            tableroLabel.Color = CCColor3B.Red;
+            AddChild(tableroLabel);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(startsound);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(coinsound);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(selectsound);
@@ -49,16 +54,15 @@ namespace project.cpp.Core
         protected override void AddedToScene()
         {
             base.AddedToScene();
-
             // Use the bounds to layout the positioning of our drawable assets
             var bounds = VisibleBoundsWorldspace;
             // position the label on the center of the screen
             label.Position = bounds.Center;
-
+            fondo.Position = bounds.Center;
             //Ubicar las 6 sillas al inicio
             sillasLabel.Position = new CCPoint(400, 250);
             dictadoLabel.Position = new CCPoint(600, 250);
-
+            tableroLabel.Position = new CCPoint(800, 250);
 
             //TODO hallar el centro de la pantalla   
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin", false);
@@ -96,6 +100,12 @@ namespace project.cpp.Core
             }
 
 
+        }
+
+        private void AgregarFondo()
+        {
+            fondo = new CCSprite("images/ciudades_pc");
+            AddChild(fondo);
         }
 
 

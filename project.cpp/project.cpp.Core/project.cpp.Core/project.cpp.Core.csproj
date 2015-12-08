@@ -35,6 +35,7 @@
     <Compile Include="DictadoLayercs.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="IntroLayer.cs" />
+    <Compile Include="LayerInicio.cs" />
     <Compile Include="SeleccionJuego.cs" />
     <Compile Include="SillaMusicalLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

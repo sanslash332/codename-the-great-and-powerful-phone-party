@@ -8,30 +8,25 @@ using System.Threading.Tasks;
 
 namespace project.cpp.Core
 {
-    class DictadoLayercs : CCLayerColor
+    class DictadoLayercs : CCLayer
     {
+        CCSprite fondo;
+        CCSprite[] botones;
         CCLabel debug;
         bool[] jugadoresActivos;
         bool win = false;
         bool contesto = true; //Es false si es que un jugador no responde a su llamado. Cuando esto pase debería perder.
-        CCLabel[] botones;
         double tiempoDeRespuesta = 1.5; //Mientras más bajo, los jugadores tendrán menos tiempo para presionar su botón.
         int tiempoUltimoSonido = 0;
         Random random = new Random();
         int llamando = 0; //Almacena al jugador al que se le pide presionar el botón. 0 Indica a ninguno, y el resto a su jugador respectivo.
-        public DictadoLayercs() : base(CCColor4B.Blue)
+        public DictadoLayercs() : base()
         {
+            AgregarFondo();
             debug = new CCLabel("", "fonts/MarkerFelt", 22, CCLabelFormat.SystemFont);
             AddChild(debug);
             //Inicializa a los jugadores que comienzan el juego y crea sus botones respectivos.
-            botones = new CCLabel[GameData.players];
-            jugadoresActivos = new bool[4];
-            for(int i=0; i<GameData.players; i++)
-            {
-                jugadoresActivos[i] = true;
-                botones[i] = new CCLabel("P" + (i+1), "fonts / MarkerFelt", 22, CCLabelFormat.SystemFont);
-                AddChild(botones[i]);
-            }
+            AgregarBotones();
         }
 
         protected override void AddedToScene()
@@ -40,9 +35,9 @@ namespace project.cpp.Core
             var Bounds = VisibleBoundsWorldspace;
             debug.Color = CCColor3B.Black;
             debug.Position = Bounds.Center;
+            fondo.Position = Bounds.Center;
             for(int i=0; i<botones.Length; i++)
             {
-                botones[i].Color = GetColorJugador(i+1);
                 botones[i].Position = GetPosicionJugador(i+1);
             }
 
@@ -132,7 +127,7 @@ namespace project.cpp.Core
                 {
                     for (int i = 0; i < botones.Length; i++)
                     {
-                        if (GameData.CheckIfLabelTouched(touch, botones[i]))
+                        if (GameData.CheckIfSpriteTouched(touch, botones[i]))
                         {
                             if (llamando == i + 1  && jugadoresActivos[i])
                             {
@@ -166,7 +161,6 @@ namespace project.cpp.Core
         {
             jugadoresActivos[idJugador-1] = false;
             botones[idJugador-1].Color = CCColor3B.Black;
-            botones[idJugador-1].Text = "Rip :(";
             debug.Text = "Mal! :(";
          //   CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/fall");
             if (checkVictoria() != -1)
@@ -182,14 +176,14 @@ namespace project.cpp.Core
             switch (idJugador)
             {
                 case 1:
-                    color = CCColor3B.Green;
+                    color = CCColor3B.Red;
                     break;
                 case 2:
-                    color = CCColor3B.Magenta; break;
+                    color = CCColor3B.Blue; break;
                 case 3:
                     color = CCColor3B.Yellow; break;
                 default:
-                    color = CCColor3B.Red; break;
+                    color = CCColor3B.Green; break;
             }
             return color;
         } 
@@ -215,6 +209,24 @@ namespace project.cpp.Core
             }
             retorno = new CCPoint(x, y);
             return retorno;
+        }
+
+        private void AgregarFondo()
+        {
+            fondo = new CCSprite("images/silla_pc");
+            AddChild(fondo);
+        }
+
+        private void AgregarBotones()
+        {
+            jugadoresActivos = new bool[4];
+            botones = new CCSprite[GameData.players];
+            for (int i = 0; i < GameData.players; i++)
+            {
+                jugadoresActivos[i] = true;
+                botones[i] = new CCSprite("images/p"+ (i+1) + "_logo");
+                AddChild(botones[i]);
+            }
         }
 
         private string GetSonidoCorrecto()  //Retorna el string que lleva a un sónido con el número de algún jugador activo, y modifica la variable llamando.
