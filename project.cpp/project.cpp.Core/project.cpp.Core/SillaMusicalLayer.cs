@@ -159,8 +159,6 @@ namespace project.cpp.Core
         {
             base.AddedToScene();
             CCSize tamaño = Scene.Window.WindowSizeInPixels;
-            fondo.Position = tamaño.Center;
-            GameData.ResizeBackground(fondo, this);
             CCSimpleAudioEngine.SharedEngine.StopEffect(musicId);
 
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundMSG);
@@ -168,9 +166,10 @@ namespace project.cpp.Core
 
             // Use the bounds to layout the positioning of our drawable assets
             var bounds = VisibleBoundsWorldspace;
+            fondo.Position = bounds.Center;
 
             // position the label on the center of the screen
-            
+
             label.Color = CCColor3B.Black;
             label.Position = bounds.Center;
 
@@ -179,6 +178,7 @@ namespace project.cpp.Core
             p3button.Position = GetPosicionJugador(3);
             p4button.Position = GetPosicionJugador(4);
 
+            GameData.ResizeBackground(fondo, this);
 
             // Register for touch events
             var touchListener = new CCEventListenerTouchAllAtOnce();
