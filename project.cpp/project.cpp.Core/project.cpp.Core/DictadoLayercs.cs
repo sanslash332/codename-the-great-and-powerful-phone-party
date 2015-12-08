@@ -254,6 +254,7 @@ namespace project.cpp.Core
             string retorno;
             int sonido = random.Next(0, 11); //Random entre 0 y 10 (inclusive). Por el momento hay 11 sónidos "inútiles"
             llamando = 0; //Para saber que todos pierden si apretan el boton.
+            contesto = true;
             switch (sonido)
             {
                 case 0:
