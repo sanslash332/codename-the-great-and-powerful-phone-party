@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace project.cpp.Core
 {
-    class DictadoLayercs : CCLayer
+    class DictadoLayercs : CCLayerColor
     {
         CCSprite fondo;
         CCSprite[] botones;
@@ -28,7 +28,6 @@ namespace project.cpp.Core
             //Inicializa a los jugadores que comienzan el juego y crea sus botones respectivos.
             AgregarBotones();
         }
-
         protected override void AddedToScene()
         {
             base.AddedToScene();
@@ -36,6 +35,7 @@ namespace project.cpp.Core
             debug.Color = CCColor3B.Black;
             debug.Position = Bounds.Center;
             fondo.Position = Bounds.Center;
+            GameData.ResizeBackground(fondo, this);
             for(int i=0; i<botones.Length; i++)
             {
                 botones[i].Position = GetPosicionJugador(i+1);
@@ -50,7 +50,6 @@ namespace project.cpp.Core
             AddEventListener(keyboardListener, this);
             Schedule(Update);
         }
-
         void onKeyPress(CCEventKeyboard keyEvent)
         {
             if (!win)

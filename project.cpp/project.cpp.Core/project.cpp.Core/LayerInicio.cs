@@ -43,7 +43,7 @@ namespace project.cpp.Core
             mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/title", true);
             fondo.Position = bounds.Center;
             label.Position = bounds.Center;
-
+            GameData.ResizeBackground(fondo, this);
             //TODO hallar el centro de la pantalla   
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin", false);
 

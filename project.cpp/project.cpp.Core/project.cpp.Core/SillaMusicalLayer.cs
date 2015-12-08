@@ -160,6 +160,7 @@ namespace project.cpp.Core
             base.AddedToScene();
             CCSize tamaño = Scene.Window.WindowSizeInPixels;
             fondo.Position = tamaño.Center;
+            GameData.ResizeBackground(fondo, this);
             CCSimpleAudioEngine.SharedEngine.StopEffect(musicId);
 
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundMSG);

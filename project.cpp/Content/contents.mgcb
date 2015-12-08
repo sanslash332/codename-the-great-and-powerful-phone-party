@@ -3,7 +3,7 @@
 
 /outputDir:.\
 /intermediateDir:.\
-/platform:Windows
+/platform:Android
 /config:
 /profile:Reach
 /compress:True

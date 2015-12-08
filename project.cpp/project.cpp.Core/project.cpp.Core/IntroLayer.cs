@@ -64,10 +64,11 @@ namespace project.cpp.Core
             // Use the bounds to layout the positioning of our drawable assets
             var bounds = VisibleBoundsWorldspace;
             mid=CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/title",true);
-
             // position the label on the center of the screen
             label.Position = bounds.Center;
             fondo.Position = bounds.Center;
+            GameData.ResizeBackground(fondo, this);
+
             //Ubicar las 6 sillas al inicio
             oneplayerlabel.Position = new CCPoint(400, 250);
             twoplayerlabels.Position = new CCPoint(600, 250);
@@ -88,7 +89,7 @@ namespace project.cpp.Core
         }
 
         
-      void OnKeyPress(CCEventKeyboard keyEvent)
+       void OnKeyPress(CCEventKeyboard keyEvent)
         {
             if(keyEvent.Keys== CCKeys.Enter)
             {

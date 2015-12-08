@@ -25,12 +25,12 @@ namespace project.cpp.Core
         int mid;
 
 
-        public SeleccionJuego() : base(CCColor4B.Red)
+        public SeleccionJuego() : base(CCColor4B.Blue)
         {
 
             // create and initialize a Label
 
-            label = new CCLabel("Seleccione el juego a jugar!", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            label = new CCLabel("Selecciona un juego!", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
 
             AgregarFondo();
             // add the label as a child to this Layer
@@ -41,8 +41,8 @@ namespace project.cpp.Core
             dictadoLabel = new CCLabel("Nombre no definido", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             dictadoLabel.Color = CCColor3B.Green;
             AddChild(dictadoLabel);
-            tableroLabel = new CCLabel("Tablero", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            tableroLabel.Color = CCColor3B.Red;
+            tableroLabel = new CCLabel("Tablero " , "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
+            tableroLabel.Color = CCColor3B.Black;
             AddChild(tableroLabel);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(startsound);
             CCSimpleAudioEngine.SharedEngine.PreloadEffect(coinsound);
@@ -63,7 +63,7 @@ namespace project.cpp.Core
             sillasLabel.Position = new CCPoint(400, 250);
             dictadoLabel.Position = new CCPoint(600, 250);
             tableroLabel.Position = new CCPoint(800, 250);
-
+            GameData.ResizeBackground(fondo, this);
             //TODO hallar el centro de la pantalla   
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin", false);
 

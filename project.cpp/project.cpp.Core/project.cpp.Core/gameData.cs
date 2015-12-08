@@ -12,6 +12,8 @@ namespace project.cpp.Core
         //una clase simplemente para guardar puntos, turnos, jugadores y cualquier cosa importante que haya que patear de pantalla en pantalla
         public static int players=1;
         public static int[] scores;
+        public static double x;
+        public static double y;
         
         public static int currentTurn=0;
         public static bool CheckIfLabelTouched(CCTouch touch, CCLabel label)
@@ -39,5 +41,15 @@ namespace project.cpp.Core
             return false;
         }
 
+        public static void ResizeBackground(CCSprite background, CCLayerColor layer) //Escala el fondo para que sea del mismo tamaño que la pantalla.
+        {
+             var bounds = layer.VisibleBoundsWorldspace;
+            float xlength = bounds.Size.Width;
+            float ylength = bounds.Size.Height;
+            x = xlength;
+            y = ylength;
+             background.ScaleX = xlength / background.ContentSize.Width;
+             background.ScaleY = ylength / background.ContentSize.Height;
+        }
     }
 }
