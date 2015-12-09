@@ -40,10 +40,33 @@ namespace project.cpp.Core
             return false;
         }
 
-
-        public static bool CheckIfSpriteTouched(CCTouch touch, CCSprite label)
+        public static CCPoint GetPosicionJugador(int idJugador, CCLayerColor layer)
         {
-            CCRect BoundingBox = label.BoundingBox;
+            var bounds =layer.VisibleBoundsWorldspace;
+            CCPoint retorno;
+            float offset = 50;
+            float x = 0;
+            float y = 0;
+            switch (idJugador)
+            {
+                case 1:
+                    x = bounds.MinX + offset; y = bounds.MinY + offset; break;
+                case 2:
+                    x = bounds.MaxX - offset; y = bounds.MinY + offset; break;
+                case 3:
+                    x = bounds.MinX + offset; y = bounds.MaxY - offset; break;
+                case 4:
+                    x = bounds.MaxX - offset; y = bounds.MaxY - offset; break;
+                default:
+                    break;
+
+            }
+            retorno = new CCPoint(x, y);
+            return retorno;
+        }
+        public static bool CheckIfSpriteTouched(CCTouch touch, CCSprite sprite)
+        {
+            CCRect BoundingBox = sprite.BoundingBox;
 
             //Tuve que agregar un offset de 20 en al minY y maxY porque la boundingBox de las labels estaba mala.
             if (touch.Location.X > BoundingBox.MinX && touch.Location.X < BoundingBox.MaxX && touch.Location.Y < BoundingBox.MaxY + 20 && touch.Location.Y > BoundingBox.MinY)
@@ -51,6 +74,24 @@ namespace project.cpp.Core
                 return true;
             }
             return false;
+        }
+
+        public static CCColor3B GetColorJugador(int idJugador)
+        {
+            CCColor3B color;
+            switch (idJugador)
+            {
+                case 1:
+                    color = CCColor3B.Red;
+                    break;
+                case 2:
+                    color = CCColor3B.Blue; break;
+                case 3:
+                    color = CCColor3B.Yellow; break;
+                default:
+                    color = CCColor3B.Green; break;
+            }
+            return color;
         }
 
         public static void ResizeBackground(CCSprite background, CCLayerColor layer) //Escala el fondo para que sea del mismo tamaño que la pantalla.
@@ -63,7 +104,6 @@ namespace project.cpp.Core
              background.ScaleX = xlength / background.ContentSize.Width;
              background.ScaleY = ylength / background.ContentSize.Height;
         }
-<<<<<<< HEAD
 
         public static void ResizeSprite(CCSprite sprite, float factor)
         {
@@ -71,7 +111,6 @@ namespace project.cpp.Core
             sprite.ScaleY = factor;
 
         }
-=======
 		public static double[] getCoords(int level, bool isPc){			
 			double[] output;
 			double random1 = r.Next(0, 10);
@@ -84,6 +123,5 @@ namespace project.cpp.Core
 			return output;
 		}
 		
->>>>>>> origin/master
     }
 }

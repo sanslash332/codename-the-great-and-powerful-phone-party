@@ -17,7 +17,15 @@ namespace project.cpp.Core
         CCSprite uno = new CCSprite("images/uno");
         CCSprite dos = new CCSprite("images/dos");
         CCSprite tres = new CCSprite("images/tres");
+        List<CCSprite> iconos = new List<CCSprite>();
+        List<CCLabel> puntajes = new List<CCLabel>();
+        List<int> puntos = new List<int>();
+        List<int> contadorMaletas = new List<int>(); //Almacena la cantidad de maletas que ha salido de cada color.
+        float tiempoSiguienteMaleta = 0.5f;
+        float tiempoRestante = 200f; //"Ticks" que dura la ronda. Reemplazar por 3000.
+
         Queue<CCSprite> maletas = new Queue<CCSprite>();
+        Random random = new Random();
         int estado = 0;  //Estado 0 indica que se dan las instrucciones.
         int tiempoUltimotick = 0;
 
@@ -46,7 +54,6 @@ namespace project.cpp.Core
             CCEventListenerKeyboard keyboardListener = new CCEventListenerKeyboard();
             keyboardListener.OnKeyPressed = onKeyPress;
             AddEventListener(keyboardListener, this);
-            Schedule(Update);
         }
         void onKeyPress(CCEventKeyboard keyEvent)
         {
@@ -61,13 +68,43 @@ namespace project.cpp.Core
                     estado++;
                     break;
                 case (1):
-                    texto.Text = "El jugador que reuna mas equipaje gana!!";
+                    texto.Text = "Que no se te pase ningun equipaje de tu color!\nEl que obtenga un porcentaje mas alto de recogidas gana.";
                     estado++;
                     break;
                 case (2):
                     texto.Text = "";
                     estado++;
                     Schedule(MostrarContador);
+                    break;
+                 case(8):   //Cuando ya van saliendo maletas
+                    foreach (CCTouch touch in touches)
+                    {
+                        foreach (CCSprite maleta in maletas)
+                        {
+                            if (GameData.CheckIfSpriteTouched(touch, maleta))
+                            {
+                                int idJugador = (int)maleta.UserData;
+                                puntos[idJugador - 1]++;   //En UserData almaceno un entero con el id del jugador, desde el 1 al 4. Le resto uno para que coincida con las posiciones del arreglo.
+                                ActualizarPuntaje(idJugador);
+                                RemoveChild(maleta);
+                            }
+                        }
+                    }
+                    break;
+                case (10)://Ya hay ganador.
+                    texto.Text = "Felicitaciones al jugador " + VerificarGanador();
+                    estado++;
+                    break;
+                case (11):
+                    texto.Text = "El jugador " + VerificarPerdedor() + " va a tener que esforzarse mas. \nULTIMO LUGAR!!!";
+                    estado++;
+                    break;
+                case (12):
+                    texto.Text = "Preparense para volver al tablero!.";
+                    estado++;
+                    break;
+                case (13):
+                    ReturnToMenu();
                     break;
             }
         }
@@ -116,32 +153,47 @@ namespace project.cpp.Core
             switch (estado)
             {
                 case (7):
-                    maletas.Enqueue(new CCSprite("images/d1"));
-                    CCSprite maleta = maletas.Peek();
-                    GameData.ResizeSprite(maleta, (float)0.5);
-                    AddChild(maleta);
-                    maleta.Position = new CCPoint(VisibleBoundsWorldspace.MaxX - 150, VisibleBoundsWorldspace.Center.Y -50);
+                    AgregarPuntajes();
+                    GenerarMaletaRandom();
                     estado++;
                     tiempoUltimotick++;
                     break;
                 case (8):
-                    foreach (CCSprite element in maletas)
+                    if(maletas.Count > 0)
                     {
-                        element.PositionX = element.PositionX - 7;
+                        foreach (CCSprite element in maletas)
+                        {
+                            element.PositionX = element.PositionX - 15;
+
+                             for(int i=1; i< GameData.players+1; i++)
+                                {
+                                    ActualizarPuntaje(i);
+                                }
+                        }
+
                     }
-                    if(tiempoUltimotick * dt > 0.5)
+
+                    if (tiempoUltimotick * dt > tiempoSiguienteMaleta)
                     {
-                        CCSprite maletiwi = new CCSprite("images/d1");
-                        GameData.ResizeSprite(maletiwi, (float)0.5);
-                        AddChild(maletiwi);
-                        maletiwi.Position = new CCPoint(VisibleBoundsWorldspace.MaxX - 150, VisibleBoundsWorldspace.Center.Y - 50);
-                        maletas.Enqueue(maletiwi);
+                        GenerarMaletaRandom();
+                        tiempoSiguienteMaleta = ((float)random.NextDouble()/2) + 0.15f;
                         tiempoUltimotick = 0;
                     }
                     tiempoUltimotick++;
+                    tiempoRestante--;
+                    if(tiempoRestante <= 0)
+                    {
+                        estado++;
+                    }
                         break;
-                    
+                case (9):
+                    AddChild(azafata);
+                    texto.Text = "Se acabó el tiempo!";
+                    AddChild(texto);
+                    estado++;
+                    break;
             }
+
 
 
         }
@@ -152,9 +204,6 @@ namespace project.cpp.Core
             var menu = new IntroLayer();
             newScene.AddChild(menu);
             Window.DefaultDirector.ReplaceScene(newScene);
-        }
-        private void DerrotaJugador(int idJugador)  //recibe entero entre 1 y 4.
-        {
         }
 
         private CCColor3B GetColorJugador(int idJugador)
@@ -209,5 +258,86 @@ namespace project.cpp.Core
             fondo = new CCSprite("images/maletas_pc");
             AddChild(fondo);
         }
+
+        private void GenerarMaletaRandom()
+        {
+            GenerarMaleta(random.Next(1, GameData.players+1));
+        }
+        private void GenerarMaleta(int idJugador)  //idJugador es un entero entre 1 y 4.
+        {
+            contadorMaletas[idJugador - 1]++;
+            CCSprite maletiwi = new CCSprite("images/d" + idJugador);
+            GameData.ResizeSprite(maletiwi, (float)0.5);
+            AddChild(maletiwi);
+            maletiwi.Position = new CCPoint(VisibleBoundsWorldspace.MaxX - 150, VisibleBoundsWorldspace.Center.Y - 50);
+            maletiwi.UserData = idJugador;
+            maletas.Enqueue(maletiwi);
+        }
+
+        private void AgregarPuntajes()
+        {
+            for(int i=1; i< GameData.players + 1; i++)
+            {
+                CCSprite sprite = new CCSprite("images/p" + i + "_logo");
+                CCLabel label = new CCLabel("100%", "fonts/MarkerFelt", 22, CCLabelFormat.SystemFont);
+                label.Color = CCColor3B.Black;
+                iconos.Add(sprite);
+                puntajes.Add(label);
+                puntos.Add(0);
+                contadorMaletas.Add(0);
+                CCPoint posicionSprite = new CCPoint(50 + (i * 200), 650);
+                CCPoint posicionLabel = new CCPoint(80 + (i * 200), 650);
+                GameData.ResizeSprite(sprite, 0.6f);
+                sprite.Position = posicionSprite;
+                label.Position = posicionLabel;
+                AddChild(sprite);
+                AddChild(label);
+            }
+        }
+
+        private void ActualizarPuntaje(int idJugador)
+        {
+            //  puntajes[idJugador-1].Text = (puntos[idJugador-1] / contadorMaletas[idJugador-1]) * 100 + "%";
+            if(idJugador > 0)
+            {
+                if (contadorMaletas[idJugador - 1] != 0)
+                    puntajes[idJugador - 1].Text = (puntos[idJugador - 1] * 100 / contadorMaletas[idJugador - 1]) + "%";
+
+            }
+        }
+
+        private int VerificarGanador()  //Retorna id del jugador que gano (mayor porcentaje).
+        {
+            int winner = 1;
+            double puntajeWinner = 0;
+            for(int i=0; i< puntos.Count; i++)
+            {
+                if ((puntos[i] * 100 / (contadorMaletas[i]+1)) > puntajeWinner)
+                {
+                    winner = i + 1;
+                    puntajeWinner = (puntos[i] * 100 / contadorMaletas[i]);
+                }       
+            }
+            return winner;
+        }
+
+        private int VerificarPerdedor()  //Retorna id del jugador que perdio (menor porcentaje).
+        {
+            int lusi = 1;
+            double puntajelusi = 100;
+            for (int i = 0; i < puntos.Count; i++)
+            {
+                if ((puntos[i] * 100 / (contadorMaletas[i]+1)) < puntajelusi)
+                {
+                    lusi = i + 1;
+                    puntajelusi = (puntos[i] * 100 / contadorMaletas[i]);
+                }
+            }
+            return lusi;
+        }
+
+
+
     }
+
 }

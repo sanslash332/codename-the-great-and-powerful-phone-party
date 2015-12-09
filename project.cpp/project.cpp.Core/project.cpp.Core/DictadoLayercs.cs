@@ -101,8 +101,6 @@ namespace project.cpp.Core
         {
             if (!win)
             {
- 
-
                 tiempoUltimoSonido++;
                 if (tiempoUltimoSonido * dt > tiempoDeRespuesta)
                 {
