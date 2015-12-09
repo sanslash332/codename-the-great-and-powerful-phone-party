@@ -222,7 +222,7 @@ namespace project.cpp.Core
 
         private void GoToMiniJuego()
         {
-            int go_to = random.Next(2, 3);
+            int go_to = random.Next(1, 4);
             CCScene newScene = new CCScene(Window);
             CCLayer nextLayer;
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/chooce");
