@@ -13,6 +13,7 @@ namespace project.cpp.Core
         CCSprite fondo;
         CCSprite[] botones;
         CCLabel debug;
+        int muertes = 0; //cuenta cuantos han perdido.
         bool[] jugadoresActivos;
         bool win = false;
         bool contesto = true; //Es false si es que un jugador no responde a su llamado. Cuando esto pase debería perder.
@@ -22,6 +23,8 @@ namespace project.cpp.Core
         int llamando = 0; //Almacena al jugador al que se le pide presionar el botón. 0 Indica a ninguno, y el resto a su jugador respectivo.
         public DictadoLayercs() : base()
         {
+            muertes = 0;
+            GameData.orden = new int[4];
             AgregarFondo();
             debug = new CCLabel("", "fonts/MarkerFelt", 22, CCLabelFormat.SystemFont);
             AddChild(debug);
@@ -150,12 +153,17 @@ namespace project.cpp.Core
         { 
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/chooce");
             var newScene = new CCScene(Window);
-            var menu = new IntroLayer();
+            var menu = new Tablero();
             newScene.AddChild(menu);
             Window.DefaultDirector.ReplaceScene(newScene);
         }
         private void DerrotaJugador(int idJugador)  //recibe entero entre 1 y 4.
         {
+            if(GameData.orden[idJugador-1] == 0)
+            {
+                GameData.orden[idJugador - 1] = 4 - muertes;
+                muertes++;
+            }
             jugadoresActivos[idJugador-1] = false;
             botones[idJugador-1].Color = CCColor3B.Black;
             debug.Text = "Mal! :(";
@@ -306,6 +314,7 @@ namespace project.cpp.Core
             {
                 return -1;
             }
+            GameData.orden[winner] = 1; //Marco como primer lugar
             win = true;  //Para que dejen de sonar sonidos random.
             return winner+1;
         }

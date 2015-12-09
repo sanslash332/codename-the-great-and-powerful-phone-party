@@ -22,7 +22,7 @@ namespace project.cpp.Core
         List<int> puntos = new List<int>();
         List<int> contadorMaletas = new List<int>(); //Almacena la cantidad de maletas que ha salido de cada color.
         float tiempoSiguienteMaleta = 0.5f;
-        float tiempoRestante = 200f; //"Ticks" que dura la ronda. Reemplazar por 3000.
+        float tiempoRestante = 3000f; //"Ticks" que dura la ronda. Reemplazar por 3000.
 
         Queue<CCSprite> maletas = new Queue<CCSprite>();
         Random random = new Random();
@@ -199,9 +199,10 @@ namespace project.cpp.Core
         }
         private void ReturnToMenu()
         {
+            ActualizarOrdenGameData();
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/chooce");
             var newScene = new CCScene(Window);
-            var menu = new IntroLayer();
+            var menu = new Tablero();
             newScene.AddChild(menu);
             Window.DefaultDirector.ReplaceScene(newScene);
         }
@@ -312,10 +313,10 @@ namespace project.cpp.Core
             double puntajeWinner = 0;
             for(int i=0; i< puntos.Count; i++)
             {
-                if ((puntos[i] * 100 / (contadorMaletas[i]+1)) > puntajeWinner)
+                if (((puntos[i] * 100) / (contadorMaletas[i]+1)) > puntajeWinner)
                 {
                     winner = i + 1;
-                    puntajeWinner = (puntos[i] * 100 / contadorMaletas[i]);
+                    puntajeWinner = ((puntos[i] * 100) / (contadorMaletas[i] + 1));
                 }       
             }
             return winner;
@@ -330,13 +331,32 @@ namespace project.cpp.Core
                 if ((puntos[i] * 100 / (contadorMaletas[i]+1)) < puntajelusi)
                 {
                     lusi = i + 1;
-                    puntajelusi = (puntos[i] * 100 / contadorMaletas[i]);
+                    puntajelusi = (puntos[i] * 100 / (contadorMaletas[i]+1));
                 }
             }
             return lusi;
         }
 
+        private void ActualizarOrdenGameData()  //Modifica el arreglo del gamedata con el orden de los jugadores según los porcentajes.
+        {
+            for(int i=0; i < GameData.players; i++)
+            {
+                GameData.orden[i] = GetOrden(i + 1);
+            }
+        }
 
+        private int GetOrden(int jugadorId) //retorna el lugar que consiguio en el juego el jugador con id jugadorId.
+        {
+            int retorno = 4;
+            for(int i=0; i<GameData.players; i++)
+            {
+                if( ((puntos[i]*100)/(contadorMaletas[i]+1)) < (puntos[jugadorId-1] * 100) / (contadorMaletas[jugadorId-1] + 1))
+                {
+                    retorno--;
+                }
+            }
+            return retorno;
+        }
 
     }
 

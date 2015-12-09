@@ -23,7 +23,7 @@ namespace project.cpp.Core
         {
 
             // create and initialize a Label
-            CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/title");
+//            CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/title");
             AgregarFondo();
             label = new CCLabel("Presione cualquier cosa para continuar", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             AddChild(label);

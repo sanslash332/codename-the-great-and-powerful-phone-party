@@ -15,7 +15,6 @@ namespace project.cpp.Core
         // Define a label variable
         CCSprite azafata;
         CCLabel label;
-        CCLabel oneplayerlabel;
         CCLabel twoplayerlabels;
         CCLabel threeplayerlabel;
         CCLabel fourplayerLabel;
@@ -38,9 +37,6 @@ namespace project.cpp.Core
             AgregarPersonajes();
             // add the label as a child to this Layer
             AddChild(label);
-            oneplayerlabel = new CCLabel("1 jugador", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
-            oneplayerlabel.Color = CCColor3B.Blue;
-            AddChild(oneplayerlabel);
             twoplayerlabels=new CCLabel("2 jugadores", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             twoplayerlabels.Color = CCColor3B.Green;
             AddChild(twoplayerlabels);
@@ -71,8 +67,7 @@ namespace project.cpp.Core
             GameData.ResizeBackground(fondo, this);
             azafata.Position = new CCPoint(200, 200);
             //Ubicar las 6 sillas al inicio
-            oneplayerlabel.Position = new CCPoint(400, 250);
-            twoplayerlabels.Position = new CCPoint(600, 250);
+            twoplayerlabels.Position = new CCPoint(500, 250);
             threeplayerlabel.Position = new CCPoint(400, 100);
             fourplayerLabel.Position = new CCPoint(600, 100);
 
@@ -97,21 +92,11 @@ namespace project.cpp.Core
                 CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/start");
                 passToGame();
             }
-            else if(keyEvent.Keys== CCKeys.D1)
-            {
-                CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
-                GameData.players = 1;
-                oneplayerlabel.Color = CCColor3B.Blue;
-                twoplayerlabels.Color = CCColor3B.Green;
-                threeplayerlabel.Color = CCColor3B.Green;
-                fourplayerLabel.Color = CCColor3B.Green;
 
-            }
             else if(keyEvent.Keys== CCKeys.D2)
             {
                 CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                 GameData.players = 2;
-                oneplayerlabel.Color = CCColor3B.Green;
                 twoplayerlabels.Color = CCColor3B.Blue;
                 threeplayerlabel.Color = CCColor3B.Green;
                 fourplayerLabel.Color = CCColor3B.Green;
@@ -122,7 +107,6 @@ namespace project.cpp.Core
             {
                 CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                 GameData.players = 3;
-                oneplayerlabel.Color = CCColor3B.Green;
                 twoplayerlabels.Color = CCColor3B.Green;
                 threeplayerlabel.Color = CCColor3B.Blue;
                 fourplayerLabel.Color = CCColor3B.Green;
@@ -133,7 +117,6 @@ namespace project.cpp.Core
             {
                 CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                 GameData.players = 4;
-                oneplayerlabel.Color = CCColor3B.Green;
                 twoplayerlabels.Color = CCColor3B.Green;
                 threeplayerlabel.Color = CCColor3B.Green;
                 fourplayerLabel.Color = CCColor3B.Blue;
@@ -141,7 +124,7 @@ namespace project.cpp.Core
             }
             else
             {
-                CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin");
+             //  CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/coin");
                 
             }
                 
@@ -157,26 +140,15 @@ namespace project.cpp.Core
                 
                 if (GameData.CheckIfLabelTouched(touch, label))
                 {
-
-
                     CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/start");
                     passToGame();
                 }
-                else if (GameData.CheckIfLabelTouched(touch, oneplayerlabel))
-                {
-                    CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
-                    GameData.players = 1;
-                    oneplayerlabel.Color = CCColor3B.Blue;
-                    twoplayerlabels.Color = CCColor3B.Green;
-                    threeplayerlabel.Color = CCColor3B.Green;
-                    fourplayerLabel.Color = CCColor3B.Green;
 
-                }
+
                 else if (GameData.CheckIfLabelTouched(touch, twoplayerlabels))
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players = 2;
-                    oneplayerlabel.Color = CCColor3B.Green;
                     twoplayerlabels.Color = CCColor3B.Blue;
                     threeplayerlabel.Color = CCColor3B.Green;
                     fourplayerLabel.Color = CCColor3B.Green;
@@ -186,7 +158,6 @@ namespace project.cpp.Core
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players= 3;
-                    oneplayerlabel.Color = CCColor3B.Green;
                     twoplayerlabels.Color = CCColor3B.Green;
                     threeplayerlabel.Color = CCColor3B.Blue;
                     fourplayerLabel.Color = CCColor3B.Green;
@@ -197,7 +168,6 @@ namespace project.cpp.Core
                 {
                     CCSimpleAudioEngine.SharedEngine.PlayEffect(selectsound);
                     GameData.players = 4;
-                    oneplayerlabel.Color = CCColor3B.Green;
                     twoplayerlabels.Color = CCColor3B.Green;
                     threeplayerlabel.Color = CCColor3B.Green;
                     fourplayerLabel.Color = CCColor3B.Blue;
@@ -227,7 +197,7 @@ namespace project.cpp.Core
             GameData.scores = new int[GameData.players];
             CCSimpleAudioEngine.SharedEngine.StopEffect(mid);
             var newScene = new CCScene(Window);
-            var silla = new SeleccionJuego();
+            var silla = new Tablero();
             newScene.AddChild(silla);
             Window.DefaultDirector.ReplaceScene(newScene);
             
