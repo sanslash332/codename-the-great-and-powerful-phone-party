@@ -27,9 +27,6 @@ namespace project.cpp.Core
             AgregarFondo();
             label = new CCLabel("Presione cualquier cosa para continuar", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
             AddChild(label);
-            CCSimpleAudioEngine.SharedEngine.PreloadEffect(startsound);
-            CCSimpleAudioEngine.SharedEngine.PreloadEffect(coinsound);
-            CCSimpleAudioEngine.SharedEngine.PreloadEffect(selectsound);
 
 
         }
@@ -40,7 +37,7 @@ namespace project.cpp.Core
 
             // Use the bounds to layout the positioning of our drawable assets
             var bounds = VisibleBoundsWorldspace;
-            mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/title", true);
+       //     mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/title", true);
             fondo.Position = bounds.Center;
             label.Position = bounds.Center;
             GameData.ResizeBackground(fondo, this);

@@ -22,7 +22,7 @@ namespace project.cpp.Core
         List<int> puntos = new List<int>();
         List<int> contadorMaletas = new List<int>(); //Almacena la cantidad de maletas que ha salido de cada color.
         float tiempoSiguienteMaleta = 0.5f;
-        float tiempoRestante = 3000f; //"Ticks" que dura la ronda. Reemplazar por 3000.
+        float tiempoRestante = 2500f; //"Ticks" que dura la ronda. Reemplazar por 3000.
 
         Queue<CCSprite> maletas = new Queue<CCSprite>();
         Random random = new Random();
@@ -347,7 +347,7 @@ namespace project.cpp.Core
 
         private int GetOrden(int jugadorId) //retorna el lugar que consiguio en el juego el jugador con id jugadorId.
         {
-            int retorno = 4;
+            int retorno = GameData.players;
             for(int i=0; i<GameData.players; i++)
             {
                 if( ((puntos[i]*100)/(contadorMaletas[i]+1)) < (puntos[jugadorId-1] * 100) / (contadorMaletas[jugadorId-1] + 1))

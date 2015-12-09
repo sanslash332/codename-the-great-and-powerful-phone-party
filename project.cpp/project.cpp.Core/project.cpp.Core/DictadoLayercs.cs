@@ -161,7 +161,7 @@ namespace project.cpp.Core
         {
             if(GameData.orden[idJugador-1] == 0)
             {
-                GameData.orden[idJugador - 1] = 4 - muertes;
+                GameData.orden[idJugador - 1] = GameData.players - muertes;
                 muertes++;
             }
             jugadoresActivos[idJugador-1] = false;

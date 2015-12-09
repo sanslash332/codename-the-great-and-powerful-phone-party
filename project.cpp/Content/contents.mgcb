@@ -3,7 +3,7 @@
 
 /outputDir:.\
 /intermediateDir:.\
-/platform:Windows
+/platform:Android
 /config:
 /profile:Reach
 /compress:True
@@ -706,4 +706,16 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
 /build:hd/images/piloto.png
+
+#begin sounds/bgm2.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:sounds/bgm2.mp3
+
+#begin bgm/bgm2.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:bgm/bgm2.mp3
 

@@ -34,10 +34,13 @@ namespace project.cpp.Core
         List<CCSprite> buttons;
         List<bool> playerIsRetired;
         bool end = false;
+        int perdedores = 0;
 
 
         public SillaMusicalLayer() : base(CCColor4B.White)
         {
+            perdedores = 0;
+            GameData.orden = new int[4];
             AgregarFondo();
             redChair = new CCSprite("images/silla_red.png");
             blueChair = new CCSprite("images/silla_blue.png");
@@ -325,6 +328,11 @@ namespace project.cpp.Core
                 if(buttonIsBlocked[i]||(!buttonIsBlocked[i]&&!playerIsSat[i]))
                 {
                     playerIsRetired[i] = true;
+                    if(GameData.orden[i] == 0)
+                    {
+                        GameData.orden[i] = GameData.players - perdedores;
+                        perdedores++;
+                    }
 
                 }
                 if(!playerIsRetired[i])
@@ -339,6 +347,7 @@ namespace project.cpp.Core
             inmusic = false;
             if (remaindPlayers == 1)
             {
+                GameData.orden[winner] = 1;
                 setEnd(winner);
 
             }
@@ -367,7 +376,7 @@ namespace project.cpp.Core
             await Task.Delay(600);
             if(winner==-1)
             {
-                label.Text = " ¡nadie porque fue un empate! ¡malos! \n toque para continuar ";
+                label.Text = " ¡Nadie!. La partida terminó en un empate! ¡malos! \n Los resultados seran distribuidos aleatoriamente. ";
             }
             else
             {
@@ -429,7 +438,7 @@ namespace project.cpp.Core
             
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundChooce);
             var newScene = new CCScene(Window);
-            var silla = new IntroLayer();
+            var silla = new Tablero();
             newScene.AddChild(silla);
             Window.DefaultDirector.ReplaceScene(newScene);
 
