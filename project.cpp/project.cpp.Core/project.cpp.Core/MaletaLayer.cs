@@ -28,9 +28,11 @@ namespace project.cpp.Core
         Random random = new Random();
         int estado = 0;  //Estado 0 indica que se dan las instrucciones.
         int tiempoUltimotick = 0;
+        int mid;
 
         public MaletaLayer() : base()
         {
+            CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/maletas");
             AgregarFondo();
             AgregarPersonajes();
             texto = new CCLabel("Buenos dias pasajeros", "fonts/MarkerFelt", 22, CCLabelFormat.SystemFont);
@@ -42,6 +44,7 @@ namespace project.cpp.Core
         {
             base.AddedToScene();
             var Bounds = VisibleBoundsWorldspace;
+
             fondo.Position = Bounds.Center;
             GameData.ResizeBackground(fondo, this);
             GameData.ResizeSprite(azafata, (float)0.6);
@@ -54,6 +57,8 @@ namespace project.cpp.Core
             CCEventListenerKeyboard keyboardListener = new CCEventListenerKeyboard();
             keyboardListener.OnKeyPressed = onKeyPress;
             AddEventListener(keyboardListener, this);
+            mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/maletas");
+
         }
         void onKeyPress(CCEventKeyboard keyEvent)
         {
@@ -199,6 +204,7 @@ namespace project.cpp.Core
         }
         private void ReturnToMenu()
         {
+            CCSimpleAudioEngine.SharedEngine.StopEffect(mid);
             ActualizarOrdenGameData();
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/chooce");
             var newScene = new CCScene(Window);

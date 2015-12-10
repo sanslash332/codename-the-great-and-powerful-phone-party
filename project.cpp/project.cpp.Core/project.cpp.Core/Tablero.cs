@@ -20,6 +20,8 @@ namespace project.cpp.Core
         bool fin = false;
         int estado = 0;
         int multiplicador; //Usado para definir el avance aleatorio despues de jugar un minijuego.
+        string soundPass = "sounds/pass";
+        string musicMapa = "bgm/mapa";
         public Tablero() : base()
         {
             if (!GameData.primeraVez)
@@ -39,6 +41,8 @@ namespace project.cpp.Core
         protected override void AddedToScene()
         {
             base.AddedToScene();
+            CCSimpleAudioEngine.SharedEngine.PlayEffect(musicMapa, true);
+
             var Bounds = VisibleBoundsWorldspace;
             fondo.Position = Bounds.Center;
             GameData.ResizeBackground(fondo, this);
@@ -59,10 +63,19 @@ namespace project.cpp.Core
         }
         void onKeyPress(CCEventKeyboard keyEvent)
         {
+            if(keyEvent.Keys== CCKeys.Enter||keyEvent.Keys== CCKeys.Space)
+            {
+
+
+
+                CCSimpleAudioEngine.SharedEngine.PlayEffect(soundPass);
+            }
         }
 
         public void OnTouchesEnded(List<CCTouch> touches, CCEvent e)
         {
+            CCSimpleAudioEngine.SharedEngine.PlayEffect(soundPass);
+
             if (!fin)
             {
                 switch (estado)
@@ -222,6 +235,7 @@ namespace project.cpp.Core
 
         private void GoToMiniJuego()
         {
+            CCSimpleAudioEngine.SharedEngine.StopAllEffects();
             int go_to = random.Next(1, 4);
             CCScene newScene = new CCScene(Window);
             CCLayer nextLayer;
