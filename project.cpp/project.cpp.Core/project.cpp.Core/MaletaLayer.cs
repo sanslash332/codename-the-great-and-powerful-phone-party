@@ -57,7 +57,7 @@ namespace project.cpp.Core
             CCEventListenerKeyboard keyboardListener = new CCEventListenerKeyboard();
             keyboardListener.OnKeyPressed = onKeyPress;
             AddEventListener(keyboardListener, this);
-            mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/maletas");
+            CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/maletas");
 
         }
         void onKeyPress(CCEventKeyboard keyEvent)
@@ -168,7 +168,7 @@ namespace project.cpp.Core
                     {
                         foreach (CCSprite element in maletas)
                         {
-                            element.PositionX = element.PositionX - 15;
+                            element.PositionX = element.PositionX - 10;
 
                              for(int i=1; i< GameData.players+1; i++)
                                 {

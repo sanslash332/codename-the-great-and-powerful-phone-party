@@ -33,7 +33,7 @@ namespace project.cpp.Core
             AgregarFondo();
             AgregarPersonajes();
             AgregarJugadores();
-            texto = new CCLabel("Bienvenido a bordo muchachos!.", "fonts/MarkerFelt", 16, CCLabelFormat.SystemFont);
+            texto = new CCLabel("Bienvenido a bordo muchachos!.", "fonts/MarkerFelt", 22, CCLabelFormat.SystemFont);
             texto.Color = CCColor3B.Black;
             AddChild(texto);
 
