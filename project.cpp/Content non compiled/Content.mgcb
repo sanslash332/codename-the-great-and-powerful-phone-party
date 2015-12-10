@@ -3,7 +3,7 @@
 
 /outputDir:..\Content
 /intermediateDir:..\obj
-/platform:Windows
+/platform:Android
 /config:
 /profile:Reach
 /compress:True
@@ -263,42 +263,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:sounds/Wrong.wav
-
-#begin bgm/bgm2.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bgm/bgm2.mp3
-
-#begin bgm/Ciudades.ogg
-/importer:OggImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bgm/Ciudades.ogg
-
-#begin bgm/Maletas.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bgm/Maletas.mp3
-
-#begin bgm/Mapa.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bgm/Mapa.mp3
-
-#begin bgm/sillas.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bgm/sillas.wav
-
-#begin bgm/title.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bgm/title.wav
 
 #begin hd/images/4773348909_7b5bd00743_b.jpg
 /importer:TextureImporter
@@ -599,4 +563,58 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/uno.png
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\bgm2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\bgm2.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\ciudades.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\ciudades.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Maletas.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Maletas.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\maletas2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\maletas2.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\mapa2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\mapa2.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa3.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\sillas.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\sillas.wav
+
+#begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\title.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\title.wav
 

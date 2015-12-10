@@ -57,7 +57,7 @@ namespace project.cpp.Core
             CCEventListenerKeyboard keyboardListener = new CCEventListenerKeyboard();
             keyboardListener.OnKeyPressed = onKeyPress;
             AddEventListener(keyboardListener, this);
-            mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/maletas");
+            mid = CCSimpleAudioEngine.SharedEngine.PlayEffect("bgm/maletas2", true);
 
         }
         void onKeyPress(CCEventKeyboard keyEvent)

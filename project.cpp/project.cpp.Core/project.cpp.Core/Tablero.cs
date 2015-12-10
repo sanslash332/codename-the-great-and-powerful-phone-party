@@ -21,7 +21,7 @@ namespace project.cpp.Core
         int estado = 0;
         int multiplicador; //Usado para definir el avance aleatorio despues de jugar un minijuego.
         string soundPass = "sounds/pass";
-        string musicMapa = "bgm/mapa";
+        string musicMapa = "bgm/bgm2";
         public Tablero() : base()
         {
             if (!GameData.primeraVez)
