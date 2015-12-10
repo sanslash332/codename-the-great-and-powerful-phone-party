@@ -130,138 +130,127 @@
 #begin sounds/321.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/321.wav
-
-#begin sounds/bgm2.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:sounds/bgm2.mp3
 
 #begin sounds/chooce.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/chooce.wav
 
 #begin sounds/coin.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/coin.wav
-
-#begin sounds/correct.m4a
-/importer:
-/processor:
-/build:sounds/correct.m4a
 
 #begin sounds/correct.mp3
 /importer:Mp3Importer
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:sounds/correct.mp3
 
 #begin sounds/electrocuted.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/electrocuted.wav
 
 #begin sounds/endwistle.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/endwistle.wav
 
 #begin sounds/fall.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/fall.wav
 
 #begin sounds/firework.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/firework.wav
 
 #begin sounds/go.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/go.wav
 
 #begin sounds/jump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/jump.wav
 
 #begin sounds/lastFase.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/lastFase.wav
 
 #begin sounds/msgappear.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/msgappear.wav
 
 #begin sounds/pass.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/pass.wav
 
 #begin sounds/score.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/score.wav
 
 #begin sounds/select.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/select.wav
 
 #begin sounds/sit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/sit.wav
 
 #begin sounds/start.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/start.wav
 
 #begin sounds/throw.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/throw.wav
 
 #begin sounds/thunder.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/thunder.wav
 
 #begin sounds/Wrong Buzzer.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/Wrong Buzzer.wav
 
 #begin sounds/Wrong.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:sounds/Wrong.wav
 
 #begin hd/images/4773348909_7b5bd00743_b.jpg
@@ -272,6 +261,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/4773348909_7b5bd00743_b.jpg
 
@@ -283,6 +273,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/azafata.png
 
@@ -294,6 +285,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/ciudades_pc.png
 
@@ -305,6 +297,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/d1.png
 
@@ -316,6 +309,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/d2.png
 
@@ -327,6 +321,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/d3.png
 
@@ -338,6 +333,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/d4.png
 
@@ -349,6 +345,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/dos.png
 
@@ -360,6 +357,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/inicio_pc.png
 
@@ -371,6 +369,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/maletas_pc.png
 
@@ -382,6 +381,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/mapa_pc.png
 
@@ -393,6 +393,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/p1_logo.png
 
@@ -404,6 +405,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/p2_logo.png
 
@@ -415,6 +417,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/p3_logo.png
 
@@ -426,6 +429,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/p4_logo.png
 
@@ -437,6 +441,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/piloto.png
 
@@ -448,6 +453,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_blue.png
 
@@ -459,6 +465,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_cyan.png
 
@@ -470,6 +477,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_green.png
 
@@ -481,6 +489,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_magenta.png
 
@@ -492,6 +501,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_orange.png
 
@@ -503,6 +513,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_pc.png
 
@@ -514,6 +525,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/silla_red.png
 
@@ -525,6 +537,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/tres.png
 
@@ -536,60 +549,61 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:hd/images/uno.png
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\bgm2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\bgm2.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\ciudades.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\ciudades.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Maletas.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Maletas.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\maletas2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\maletas2.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\mapa2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\mapa2.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa3.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\Mapa3.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\sillas.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\sillas.wav
 
 #begin ..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\title.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:..\..\..\..\..\programacion\c#\codename-the-great-and-powerful-phone-party\project.cpp\Content non compiled\bgm\title.wav
 

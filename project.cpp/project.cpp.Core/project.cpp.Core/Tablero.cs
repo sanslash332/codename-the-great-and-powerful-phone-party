@@ -69,12 +69,23 @@ namespace project.cpp.Core
 
 
                 CCSimpleAudioEngine.SharedEngine.PlayEffect(soundPass);
+                processTurn();
+
             }
         }
 
         public void OnTouchesEnded(List<CCTouch> touches, CCEvent e)
         {
             CCSimpleAudioEngine.SharedEngine.PlayEffect(soundPass);
+            processTurn();
+
+        }
+
+        private void processTurn()
+        {
+
+
+
 
             if (!fin)
             {
@@ -226,6 +237,8 @@ namespace project.cpp.Core
         }
         private void ReturnToMenu()
         {
+            CCSimpleAudioEngine.SharedEngine.StopAllEffects();
+
             CCSimpleAudioEngine.SharedEngine.PlayEffect("sounds/chooce");
             var newScene = new CCScene(Window);
             var menu = new IntroLayer();
