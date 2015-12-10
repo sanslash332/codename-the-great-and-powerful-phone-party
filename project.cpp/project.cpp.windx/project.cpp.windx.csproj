@@ -128,7 +128,7 @@
     <Content Include="Game.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\app.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
