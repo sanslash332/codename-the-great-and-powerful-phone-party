@@ -30,7 +30,11 @@ namespace project.cpp.Core
 
             // create and initialize a Label
             CCSimpleAudioEngine.SharedEngine.PreloadEffect("bgm/title");
-
+            for (int i = 0; i < 4; i++) //Arreglo error al repetir tablero
+            {
+                if (GameData.pos[i] == 0)
+                    GameData.pos[i] = 1;
+            }
             label = new CCLabel("Bienvenido a bordo. Seleccione cuantos jugadores van a jugar, y luego presione aqui.", "fonts/MarkerFelt", 22, CCLabelFormat.SpriteFont);
 
             AgregarFondo();
